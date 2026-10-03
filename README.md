@@ -1,4 +1,4 @@
-# Collectiona Ontology (CO)
+# Collections Ontology (CO)
 
 The **_Collections Ontology (CO)_** is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).
 
