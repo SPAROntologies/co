@@ -1,0 +1,20 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:Set a owl:Class ;
+    rdfs:label "set"@en ;
+    vann:example """
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 ;
+        co:size "2"^^xsd:nonNegativeInteger .
+    """ ;
+    rdfs:comment "A collection that cannot contain duplicate elements."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf co:Collection ;
+    vs:term_status reg:statusStable .
+

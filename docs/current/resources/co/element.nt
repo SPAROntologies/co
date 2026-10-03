@@ -1,0 +1,12 @@
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#label> "has element"@en .
+<http://purl.org/co/element> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/item> .
+<http://purl.org/co/element> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/itemContent> .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Collection> .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/element> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:nabc9bd0c26da48e5a90b3891a64505e6b1 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a collection and the members of a collection"@en .
+<http://purl.org/co/element> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b2 .

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="http://purl.org/co/itemContent">
+    <vann:example>
+    :citation-1 a co:Item ;
+        co:itemContent :paper-1 .
+    </vann:example>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:domain rdf:resource="http://purl.org/co/Item"/>
+    <rdfs:comment xml:lang="en">The relation between an item and the actual resource to which the item refers.</rdfs:comment>
+    <rdfs:label xml:lang="en">has item content</rdfs:label>
+    <rdfs:range rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b3"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:complementOf rdf:resource="http://purl.org/co/Item"/>
+  </rdf:Description>
+</rdf:RDF>

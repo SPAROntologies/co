@@ -1,0 +1,24 @@
+_:nabc9bd0c26da48e5a90b3891a64505e6b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b17 .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/List> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b15 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b18 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b15 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b13 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b16 .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/item> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#range> _:nabc9bd0c26da48e5a90b3891a64505e6b13 .
+<http://purl.org/co/firstItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b14 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/previousItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b14 .
+<http://purl.org/co/firstItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#label> "has first item"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b14 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b15 <http://www.w3.org/2002/07/owl#hasValue> "1"^^<http://www.w3.org/2001/XMLSchema#positiveInteger> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a list and the first item of the list."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
+<http://purl.org/co/firstItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:firstItem :author-1 .\n    " .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/firstItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .

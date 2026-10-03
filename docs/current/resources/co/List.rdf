@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="http://purl.org/co/List">
+    <rdfs:subClassOf rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b7"/>
+    <rdfs:subClassOf rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b12"/>
+    <rdfs:subClassOf rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b8"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:comment xml:lang="en">An ordered array of items, that can be present in multiple copies</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:label xml:lang="en">list</rdfs:label>
+    <vann:example>
+    :authors a co:List ;
+        co:firstItem :author-1 ;
+        co:item :author-1 , 
+                :author-2 , 
+                :author-3 ;
+        co:lastItem :author-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+
+    :author-1 a co:ListItem ;
+        co:index "1"^^xsd:positiveInteger ;
+        co:itemContent :alice ;
+        co:nextItem :author-2 .
+
+    :author-2 a co:ListItem ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:nextItem :author-3 .
+
+    :author-3 a co:ListItem ;
+        co:index "3"^^xsd:positiveInteger ;
+        co:itemContent :carol .
+    </vann:example>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/item"/>
+    <owl:allValuesFrom rdf:resource="http://purl.org/co/ListItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b11">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b7">
+    <owl:onProperty rdf:resource="http://purl.org/co/lastItem"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b10">
+    <rdf:rest rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b11"/>
+    <rdf:first rdf:resource="http://purl.org/co/Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b12">
+    <owl:onProperty rdf:resource="http://purl.org/co/firstItem"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b8">
+    <owl:intersectionOf rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b10"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

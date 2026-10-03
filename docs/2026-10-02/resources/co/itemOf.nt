@@ -1,0 +1,7 @@
+<http://purl.org/co/itemOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and a bag in which the item is member."@en .
+<http://purl.org/co/itemOf> <http://www.w3.org/2000/01/rdf-schema#label> "is item of"@en .
+<http://purl.org/co/itemOf> <http://purl.org/vocab/vann/example> "\n    :citation-1 a co:Item ;\n        co:itemOf :citations .\n    " .
+<http://purl.org/co/itemOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/itemOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/itemOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/item> .
+<http://purl.org/co/itemOf> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .

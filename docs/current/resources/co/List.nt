@@ -1,0 +1,24 @@
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b7 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b7 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/lastItem> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#comment> "An ordered array of items, that can be present in multiple copies"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b11 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b12 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/firstItem> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b12 .
+<http://purl.org/co/List> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b7 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/item> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b8 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/Bag> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b8 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b10 .
+<http://purl.org/co/List> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#label> "list"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b9 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://purl.org/co/ListItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b12 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b9 .
+<http://purl.org/co/List> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:firstItem :author-1 ;\n        co:item :author-1 , \n                :author-2 , \n                :author-3 ;\n        co:lastItem :author-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :author-1 a co:ListItem ;\n        co:index \"1\"^^xsd:positiveInteger ;\n        co:itemContent :alice ;\n        co:nextItem :author-2 .\n\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:nextItem :author-3 .\n\n    :author-3 a co:ListItem ;\n        co:index \"3\"^^xsd:positiveInteger ;\n        co:itemContent :carol .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .

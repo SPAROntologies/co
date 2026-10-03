@@ -1,0 +1,11 @@
+<http://purl.org/co/itemContent> <http://purl.org/vocab/vann/example> "\n    :citation-1 a co:Item ;\n        co:itemContent :paper-1 .\n    " .
+<http://purl.org/co/itemContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Item> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the actual resource to which the item refers."@en .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#label> "has item content"@en .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#range> _:nabc9bd0c26da48e5a90b3891a64505e6b3 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b3 <http://www.w3.org/2002/07/owl#complementOf> <http://purl.org/co/Item> .
+<http://purl.org/co/itemContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .

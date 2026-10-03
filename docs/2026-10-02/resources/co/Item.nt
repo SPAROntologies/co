@@ -1,0 +1,12 @@
+<http://purl.org/co/Item> <http://purl.org/vocab/vann/example> "\n    :citation-1 a co:Item ;\n        co:itemOf :citations ;\n        co:itemContent :paper-1 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/Item> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b24 <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/item> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#label> "item"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b23 <http://www.w3.org/2002/07/owl#onProperty> _:nabc9bd0c26da48e5a90b3891a64505e6b24 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b23 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/co/Bag> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#comment> "An element belonging to a bag."@en .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b23 .
+<http://purl.org/co/Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
