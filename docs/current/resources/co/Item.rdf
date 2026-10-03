@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="http://purl.org/co/Item">
+    <vann:example>
+    :citation-1 a co:Item ;
+        co:itemOf :citations ;
+        co:itemContent :paper-1 .
+    </vann:example>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b23"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:label xml:lang="en">item</rdfs:label>
+    <rdfs:comment xml:lang="en">An element belonging to a bag.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b24"/>
+    <owl:someValuesFrom rdf:resource="http://purl.org/co/Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b24">
+    <owl:inverseOf rdf:resource="http://purl.org/co/item"/>
+  </rdf:Description>
+</rdf:RDF>

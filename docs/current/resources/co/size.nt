@@ -1,0 +1,9 @@
+<http://purl.org/co/size> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n    " .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/size> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/size> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Collection> .
+<http://purl.org/co/size> <http://www.w3.org/2004/02/skos/core#note> "\nCO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:\n- the size of the set {a, b, c} is three;\n- the size of the bag [a, a, b, b, b, c] is five;\n- the size of the list (a, b, c, b, a, b, c, c) is seven."@en .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#label> "has size"@en .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of items belonging to a collection."@en .

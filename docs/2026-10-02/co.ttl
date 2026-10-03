@@ -1,0 +1,847 @@
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix co: <http://purl.org/co/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix error: <http://www.essepuntato.it/2009/10/error/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/co> a owl:Ontology ;
+    dc:contributor "Marco Ocana"^^xsd:string,
+        "Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)"^^xsd:string ;
+    dc:creator "Paolo Ciccarese (https://orcid.org/0000-0002-5156-2703)"^^xsd:string,
+        "Silvio Peroni (http://orcid.org/0000-0003-0530-4305)"^^xsd:string ;
+    dc:date "2026-10-02"^^xsd:string ;
+    dc:description """
+The **_Collections Ontology (CO)_** is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).
+
+![The main architecture of CO.](co.png)
+
+The main class of CO is `co:Collection`, i.e. a group of objects that can be considered as a whole. 
+Each collection is linked to the objects it contains by means of the property `co:element` (with `co:elementOf` as its inverse), and to the number of objects it contains by means of the property `co:size`. 
+A collection has exactly one size.
+
+CO defines three kinds of collections:
+
+- `co:Set`, an unordered collection that cannot contain duplicate elements;
+- `co:Bag`, an unordered collection that can contain the same element more than once;
+- `co:List`, a bag in which the elements are ordered.
+
+Since the same object can be in a bag more than once, a bag is not only linked to its elements. 
+Each occurrence of an object in a bag is a `co:Item`, and each list item in a list is a `co:ListItem`, which is a subclass of `co:Item`. 
+
+![The representation of a set according to CO.](set.png)
+
+A `co:Set` is the simplest collection of CO. 
+A set is directly linked to each of its members by means of `co:element`. 
+No item is necessary, since each object can be in a set only once. 
+The size of a set is the number of its elements.
+
+![The representation of a bag according to CO.](bag.png)
+
+A `co:Bag` is linked to its items by means of `co:item`. 
+Each `co:Item` is one occurrence of an object in the bag, and it is linked to that object by means of the functional property `co:itemContent`. 
+An item cannot be the content of another item. 
+Two items of the same bag can have the same content: this is how a bag contains duplicates.
+
+The property chain `co:item o co:itemContent` is a subproperty of `co:element`. 
+Thus, the elements of a bag are inferred from its items. 
+The size of a bag is the number of its items, not the number of its distinct elements.
+
+![The representation of a list according to CO.](list.png)
+
+A `co:List` is a bag in which all the items are `co:ListItem`s.
+A list has at most one first item (`co:firstItem`) and at most one last item (`co:lastItem`). 
+
+Each list item has exactly one position in the list, starting from 1, specified by means of `co:index`. 
+Each list item is linked to the list item that immediately follows it by means of `co:nextItem`, and to the list item that immediately precedes it by means of `co:previousItem`. 
+The property chain `co:item o co:nextItem` is a subproperty of `co:item`. Thus, it is sufficient to specify the first item of a list and the chain of `co:nextItem` relations: all the other items of the list are inferred.
+
+CO also includes some SWRL rules that complete the description of a list:
+
+- the index of a list item is the index of its previous item plus one;
+- two items of the same list with consecutive indexes are linked by `co:nextItem`;
+- the item of a list with index 1 is the first item of the list;
+- the size of a list is the index of its last item, and the item whose index is equal to the size of the list is the last item of the list;
+- a list item that is preceded or followed by itself raises an error (`error:hasError`).
+
+## Examples of use
+
+In the following subsections, we introduce some examples to showcase how to use CO. 
+
+The prefixes that are used in all the examples provided below are defined as follows:
+
+        @prefix : <http://www.sparontologies.net/example/> .
+        @prefix co: <http://purl.org/co/> .
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### A reading list as a set
+
+A reading list contains two papers. 
+The order of the papers is not relevant and each paper is in the reading list only once. 
+Thus, the reading list is a `co:Set` that is linked to its members with `co:element`.
+
+        :reading-list a co:Set ;
+            co:element :paper-1 , :paper-2 ;
+            co:size "2"^^xsd:nonNegativeInteger .
+
+### In-text citations as a bag
+
+The text of an article cites `:paper-1` twice and `:paper-2` once. 
+The order of the citations is not relevant, but the number of times each paper is cited is. 
+Thus, the citations are a `co:Bag` of three `co:Item`s: each item is one occurrence, and `co:itemContent` links the item to the cited paper. 
+The statements `:citations co:element :paper-1 , :paper-2` are inferred by means of the property chain `co:item o co:itemContent`.
+
+        :citations a co:Bag ;
+            co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 ;
+            co:size "3"^^xsd:nonNegativeInteger .
+
+        :citation-1 a co:Item ; 
+                co:itemContent :paper-1 .
+
+        :citation-2 a co:Item ; 
+                co:itemContent :paper-2 .
+
+        :citation-3 a co:Item ; 
+                co:itemContent :paper-1 .
+
+### The authors of a paper as a list
+
+A paper has three authors, and their order is relevant. 
+Thus, the authors are a `co:List` of three `co:ListItem`s. 
+Each list item has a position (`co:index`), refers to one author (`co:itemContent`) and is linked to the list item that follows it (`co:nextItem`).
+
+        :authors a co:List ;
+            co:firstItem :author-1 ;
+            co:item :author-1 , :author-2 , :author-3 ;
+            co:lastItem :author-3 ;
+            co:size "3"^^xsd:nonNegativeInteger .
+
+        :author-1 a co:ListItem ;
+            co:index "1"^^xsd:positiveInteger ;
+            co:itemContent :alice ;
+            co:nextItem :author-2 .
+
+        :author-2 a co:ListItem ;
+            co:index "2"^^xsd:positiveInteger ;
+            co:itemContent :bob ;
+            co:nextItem :author-3 .
+
+        :author-3 a co:ListItem ;
+            co:index "3"^^xsd:positiveInteger ;
+            co:itemContent :carol .
+
+## Competency Questions
+
+CO can be used for answering several questions related to different ways entities can be grouped into aggregates and organized into collections.
+In the following subsections, some of them are introduced together with their respective SPARQL queries. 
+
+The prefixes that are used in all the SPARQL queries provided below are defined as follows:
+        
+        PREFIX : <http://www.sparontologies.net/example/>
+        PREFIX co: <http://purl.org/co/>
+
+### CQ1
+
+What are the entities that belong to a collection?
+
+        SELECT DISTINCT ?collection ?element
+        WHERE {
+            ?collection co:element|co:item/co:itemContent ?element .
+        }
+
+### CQ2
+
+How many times does each entity appear in a bag?
+
+        SELECT ?element (COUNT(?item) AS ?occurrences)
+        WHERE {
+            :citations co:item ?item .
+            ?item co:itemContent ?element .
+        }
+        GROUP BY ?element
+
+### CQ3
+
+What is the size of a collection?
+
+        SELECT ?collection ?size
+        WHERE {
+            ?collection co:size ?size .
+        }
+
+### CQ4
+
+What are the first entity and the last entity of a list?
+
+        SELECT ?first ?last
+        WHERE {
+            :authors co:firstItem/co:itemContent ?first ;
+                co:lastItem/co:itemContent ?last .
+        }
+
+### CQ5
+
+Which entity is at a given position of a list?
+
+        SELECT ?element
+        WHERE {
+            :authors co:item ?item .
+            ?item co:index ?index ;
+                co:itemContent ?element .
+            FILTER (?index = 2)
+        }
+
+    """@en ;
+    dc:title "The Collections Ontology (CO)"@en ;
+    dcterms:bibliographicCitation "Ciccarese, P., & Peroni, S. (2014). The Collections Ontology: creating and handling collections in OWL 2 DL frameworks. Semantic Web, 5(6), 515-529. DOI: https://doi.org/10.3233/SW-130121." ;
+    dcterms:created "2012-03-12" ;
+    dcterms:issued "2012-03-12" ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-10-02" ;
+    dcterms:publisher <https://ror.org/00wb4mk85> ;
+    dcterms:source <https://github.com/SPAROntologies/co/blob/master/docs/cq.md> ;
+    bibo:doi "TBA" ;
+    bibo:status <http://purl.org/ontology/bibo/status/published> ;
+    vann:preferredNamespacePrefix "co"@en ;
+    vann:preferredNamespaceUri "http://purl.org/co"@en ;
+    owl:backwardCompatibleWith <https://raw.githubusercontent.com/collections-ontology/collections-ontology/refs/heads/master/collections.owl> ;
+    owl:imports <http://purl.org/spar/error> ;
+    owl:priorVersion <https://raw.githubusercontent.com/collections-ontology/collections-ontology/refs/heads/master/collections.owl> ;
+    owl:versionIRI co:2026-10-02 ;
+    owl:versionInfo "2.1.0"^^xsd:string ;
+    foaf:logo <https://github.com/SPAROntologies/co/blob/master/spar.png> ;
+    schema:codeRepository <https://github.com/SPAROntologies/co> ;
+    schema:image <https://github.com/SPAROntologies/co/blob/master/docs/current/bag.png>,
+        <https://github.com/SPAROntologies/co/blob/master/docs/current/co.png>,
+        <https://github.com/SPAROntologies/co/blob/master/docs/current/list.png>,
+        <https://github.com/SPAROntologies/co/blob/master/docs/current/set.png> ;
+    schema:includedInDataCatalog <https://fairsharing.org/> ;
+    schema:keywords "bibliometrics"@en,
+        "collections"@en,
+        "scholarly publishing"@en,
+        "scientometrics"@en,
+        "semantic publishing"@en .
+
+co:elementOf a owl:ObjectProperty ;
+    rdfs:label "is element of"@en ;
+    vann:example """
+    :paper-1 
+        co:elementOf :reading-list .
+    """ ;
+    rdfs:comment "The relation between an object and a collection in which the object is member."@en ;
+    rdfs:isDefinedBy co: ;
+    owl:inverseOf co:element ;
+    vs:term_status reg:statusStable .
+
+co:firstItemOf a owl:ObjectProperty ;
+    rdfs:label "is first item of"@en ;
+    vann:example """
+    :author-1 a co:ListItem ;
+        co:firstItemOf :authors .
+    """ ;
+    rdfs:comment "The relation between an object and a list in which the object is first item."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subPropertyOf co:itemOf ;
+    owl:inverseOf co:firstItem ;
+    vs:term_status reg:statusStable .
+
+co:itemContentOf a owl:ObjectProperty ;
+    rdfs:label "is item content of"@en ;
+    vann:example """
+    :paper-1 
+        co:itemContentOf :citation-1 , 
+                :citation-3 .
+    """ ;
+    rdfs:comment "The relation between an object and the item that refers to the object."@en ;
+    rdfs:isDefinedBy co: ;
+    owl:inverseOf co:itemContent ;
+    vs:term_status reg:statusStable .
+
+co:lastItemOf a owl:ObjectProperty ;
+    rdfs:label "is last item of"@en ;
+    vann:example """
+    :author-3 a co:ListItem ;
+        co:lastItemOf :authors .
+    """ ;
+    rdfs:comment "The relation between an object and a list in which the object is last item."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subPropertyOf co:itemOf ;
+    owl:inverseOf co:lastItem ;
+    vs:term_status reg:statusStable .
+
+dc:contributor a owl:AnnotationProperty .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:date a owl:AnnotationProperty .
+
+dc:description a owl:AnnotationProperty .
+
+dc:format a owl:AnnotationProperty .
+
+dc:language a owl:AnnotationProperty .
+
+dc:publisher a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+co:Set a owl:Class ;
+    rdfs:label "set"@en ;
+    vann:example """
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 ;
+        co:size "2"^^xsd:nonNegativeInteger .
+    """ ;
+    rdfs:comment "A collection that cannot contain duplicate elements."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf co:Collection ;
+    vs:term_status reg:statusStable .
+
+co:previousItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has previous item"@en ;
+    vann:example """
+    :author-3 
+        co:previousItem :author-2 .
+    
+    :author-2 
+        co:previousItem :author-1 .
+    """ ;
+    rdfs:comment "The relation between an item and the previous item in a list."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subPropertyOf co:precededBy ;
+    owl:inverseOf co:nextItem ;
+    vs:term_status reg:statusStable ;
+    skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1]."@en .
+
+co:element a owl:ObjectProperty ;
+    rdfs:label "has element"@en ;
+    vann:example """
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 .
+    """ ;
+    rdfs:comment "The relation between a collection and the members of a collection"@en ;
+    rdfs:domain co:Collection ;
+    rdfs:isDefinedBy co: ;
+    owl:propertyChainAxiom ( co:item co:itemContent ) ;
+    vs:term_status reg:statusStable .
+
+co:itemContent a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has item content"@en ;
+    vann:example """
+    :citation-1 a co:Item ;
+        co:itemContent :paper-1 .
+    """ ;
+    rdfs:comment "The relation between an item and the actual resource to which the item refers."@en ;
+    rdfs:domain co:Item ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range [ a owl:Class ;
+            owl:complementOf co:Item ] ;
+    vs:term_status reg:statusStable .
+
+co:precededBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "is preceded by"@en ;
+    vann:example """
+    :author-3 
+        co:precededBy :author-2 , 
+                :author-1 .
+    """ ;
+    rdfs:comment "The relation between an item and the preceding item in a list."@en ;
+    rdfs:isDefinedBy co: ;
+    owl:inverseOf co:followedBy ;
+    vs:term_status reg:statusStable ;
+    skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1]."@en .
+
+<urn:swrl#current> a swrl:Variable .
+
+<urn:swrl#last> a swrl:Variable .
+
+<urn:swrl#list> a swrl:Variable .
+
+<urn:swrl#next> a swrl:Variable .
+
+<urn:swrl#nextR> a swrl:Variable .
+
+<urn:swrl#r1> a swrl:Variable .
+
+<urn:swrl#r2> a swrl:Variable .
+
+co:Bag a owl:Class ;
+    rdfs:label "bag"@en ;
+    vann:example """
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+
+    :citation-1 a co:Item ; 
+        co:itemContent :paper-1 .
+
+    :citation-2 a co:Item ; 
+        co:itemContent :paper-2 .
+
+    :citation-3 a co:Item ; 
+        co:itemContent :paper-1 .
+    """ ;
+    rdfs:comment "Collection that can have a number of copies of each object"@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf co:Collection ;
+    owl:disjointWith co:Set ;
+    vs:term_status reg:statusStable .
+
+co:followedBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "is followed by"@en ;
+    vann:example """
+    :author-1 
+        co:followedBy :author-2 , 
+                :author-3 .
+    """ ;
+    rdfs:comment "The relation between an item and the following item in a list."@en ;
+    rdfs:domain co:ListItem ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range co:ListItem ;
+    vs:term_status reg:statusStable ;
+    skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is followed by I[i+1], ... , I[n-1] and I[n]."@en .
+
+error:hasError a owl:DatatypeProperty ;
+    rdfs:label "has error"@en ;
+    rdfs:comment "A description, usually in natural language, of which kind of error results from a resource."@en ;
+    rdfs:domain [ a owl:Restriction ;
+            owl:cardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty error:hasError ] ;
+    rdfs:isDefinedBy <http://purl.org/spar/error/> ;
+    rdfs:range xsd:string ;
+    vs:term_status reg:statusStable .
+
+owl:Thing a owl:Class .
+
+<urn:swrl#li> a swrl:Variable .
+
+<urn:swrl#li1> a swrl:Variable .
+
+<urn:swrl#li2> a swrl:Variable .
+
+co:Collection a owl:Class ;
+    rdfs:label "collection"@en ;
+    vann:example """
+    :reading-list a co:Collection ;
+        co:element :paper-1 , 
+                :paper-2 ;
+        co:size "2"^^xsd:nonNegativeInteger .
+    """ ;
+    rdfs:comment "A group of objects that can be considered as a whole."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:size ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom owl:Thing ;
+            owl:onProperty co:element ],
+        owl:Thing ;
+    owl:disjointWith co:Item ;
+    vs:term_status reg:statusStable .
+
+co:List a owl:Class ;
+    rdfs:label "list"@en ;
+    vann:example """
+    :authors a co:List ;
+        co:firstItem :author-1 ;
+        co:item :author-1 , 
+                :author-2 , 
+                :author-3 ;
+        co:lastItem :author-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+
+    :author-1 a co:ListItem ;
+        co:index "1"^^xsd:positiveInteger ;
+        co:itemContent :alice ;
+        co:nextItem :author-2 .
+
+    :author-2 a co:ListItem ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:nextItem :author-3 .
+
+    :author-3 a co:ListItem ;
+        co:index "3"^^xsd:positiveInteger ;
+        co:itemContent :carol .
+    """ ;
+    rdfs:comment "An ordered array of items, that can be present in multiple copies"@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:firstItem ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:lastItem ],
+        [ a owl:Class ;
+            owl:intersectionOf ( co:Bag [ a owl:Restriction ;
+                        owl:allValuesFrom co:ListItem ;
+                        owl:onProperty co:item ] ) ] ;
+    vs:term_status reg:statusStable .
+
+co:firstItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has first item"@en ;
+    vann:example """
+    :authors a co:List ;
+        co:firstItem :author-1 .
+    """ ;
+    rdfs:comment "The relation between a list and the first item of the list."@en ;
+    rdfs:domain co:List ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( co:ListItem [ a owl:Restriction ;
+                        owl:cardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onProperty co:previousItem ] [ a owl:Restriction ;
+                        owl:hasValue "1"^^xsd:positiveInteger ;
+                        owl:onProperty co:index ] ) ] ;
+    rdfs:subPropertyOf co:item ;
+    vs:term_status reg:statusStable .
+
+co:size a owl:DatatypeProperty ;
+    rdfs:label "has size"@en ;
+    vann:example """
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 ;
+        co:size "2"^^xsd:nonNegativeInteger .
+
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+    """ ;
+    rdfs:comment "The number of items belonging to a collection."@en ;
+    rdfs:domain co:Collection ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range xsd:nonNegativeInteger ;
+    vs:term_status reg:statusStable ;
+    skos:note """
+CO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:
+- the size of the set {a, b, c} is three;
+- the size of the bag [a, a, b, b, b, c] is five;
+- the size of the list (a, b, c, b, a, b, c, c) is seven."""@en .
+
+<urn:swrl#r> a swrl:Variable .
+
+<urn:swrl#value> a swrl:Variable .
+
+co:nextItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has next item"@en ;
+    vann:example """
+    :author-1 
+        co:nextItem :author-2 .
+
+    :author-2 
+        co:nextItem :author-3 .
+    """ ;
+    rdfs:comment "The relation between an item and the next item in a list."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subPropertyOf co:followedBy ;
+    vs:term_status reg:statusStable ;
+    skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."@en .
+
+<urn:swrl#i> a swrl:Variable .
+
+co:itemOf a owl:ObjectProperty ;
+    rdfs:label "is item of"@en ;
+    vann:example """
+    :citation-1 a co:Item ;
+        co:itemOf :citations .
+    """ ;
+    rdfs:comment "The relation between an item and a bag in which the item is member."@en ;
+    rdfs:isDefinedBy co: ;
+    owl:inverseOf co:item ;
+    vs:term_status reg:statusStable .
+
+co:lastItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has last item"@en ;
+    vann:example """
+    :authors a co:List ;
+        co:lastItem :author-3 .
+    """ ;
+    rdfs:comment "The relation between an item and the last item of the list."@en ;
+    rdfs:domain co:List ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( co:ListItem [ a owl:Restriction ;
+                        owl:cardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onProperty co:nextItem ] ) ] ;
+    rdfs:subPropertyOf co:item ;
+    vs:term_status reg:statusStable .
+
+<urn:swrl#x> a swrl:Variable .
+
+co:Item a owl:Class ;
+    rdfs:label "item"@en ;
+    vann:example """
+    :citation-1 a co:Item ;
+        co:itemOf :citations ;
+        co:itemContent :paper-1 .
+    """ ;
+    rdfs:comment "An element belonging to a bag."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty [ owl:inverseOf co:item ] ;
+            owl:someValuesFrom co:Bag ],
+        owl:Thing ;
+    vs:term_status reg:statusStable .
+
+co:ListItem a owl:Class ;
+    rdfs:label "list item"@en ;
+    vann:example """
+    :author-2 a co:ListItem ;
+        co:itemOf :authors ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:previousItem :author-1 ;
+        co:nextItem :author-3 .
+    """ ;
+    rdfs:comment "An element belonging to a list."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:index ],
+        co:Item ;
+    vs:term_status reg:statusStable .
+
+co:item a owl:ObjectProperty ;
+    rdfs:label "has item"@en ;
+    vann:example """
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 .
+    """ ;
+    rdfs:comment "The relation between a bag and every item of the bag"@en ;
+    rdfs:domain co:Bag ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range co:Item ;
+    owl:propertyChainAxiom ( co:item co:nextItem ) ;
+    vs:term_status reg:statusStable .
+
+<urn:swrl#l> a swrl:Variable .
+
+co:index a owl:DatatypeProperty ;
+    rdfs:label "has index"@en ;
+    vann:example """
+    :author-2 a co:ListItem ;
+        co:index "2"^^xsd:positiveInteger .
+    """ ;
+    rdfs:comment "A number identifying the position, starting from 1, of a particular list item within a list."@en ;
+    rdfs:domain co:ListItem ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range xsd:positiveInteger ;
+    vs:term_status reg:statusStable .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#list> ;
+                    swrl:argument2 <urn:swrl#last> ;
+                    swrl:propertyPredicate co:lastItem ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                            swrl:argument1 <urn:swrl#last> ;
+                            swrl:argument2 <urn:swrl#r> ;
+                            swrl:propertyPredicate co:index ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                    swrl:argument1 <urn:swrl#list> ;
+                    swrl:argument2 <urn:swrl#r> ;
+                    swrl:propertyPredicate co:size ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#current> ;
+                    swrl:argument2 <urn:swrl#next> ;
+                    swrl:propertyPredicate co:nextItem ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                            swrl:argument1 <urn:swrl#current> ;
+                            swrl:argument2 <urn:swrl#r> ;
+                            swrl:propertyPredicate co:index ] ;
+                    rdf:rest [ a swrl:AtomList ;
+                            rdf:first [ a swrl:BuiltinAtom ;
+                                    swrl:arguments [ a rdf:List ;
+                                            rdf:first <urn:swrl#nextR> ;
+                                            rdf:rest [ a rdf:List ;
+                                                    rdf:first <urn:swrl#r> ;
+                                                    rdf:rest [ a rdf:List ;
+                                                            rdf:first 1 ;
+                                                            rdf:rest () ] ] ] ;
+                                    swrl:builtin swrlb:add ] ;
+                            rdf:rest () ] ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                    swrl:argument1 <urn:swrl#next> ;
+                    swrl:argument2 <urn:swrl#nextR> ;
+                    swrl:propertyPredicate co:index ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#x> ;
+                    swrl:argument2 <urn:swrl#x> ;
+                    swrl:propertyPredicate co:precededBy ] ;
+            rdf:rest () ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                    swrl:argument1 <urn:swrl#x> ;
+                    swrl:argument2 "A list item cannot be preceded by itself" ;
+                    swrl:propertyPredicate error:hasError ] ;
+            rdf:rest () ] .
+
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( co:List [ a owl:Restriction ;
+                        owl:onProperty co:firstItem ;
+                        owl:someValuesFrom co:Item ] [ a owl:Restriction ;
+                        owl:onProperty co:lastItem ;
+                        owl:someValuesFrom co:Item ] ) ] ;
+    owl:intersectionOf ( co:List [ a owl:Restriction ;
+                owl:onProperty co:item ;
+                owl:someValuesFrom co:ListItem ] ) .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#x> ;
+                    swrl:argument2 <urn:swrl#x> ;
+                    swrl:propertyPredicate co:followedBy ] ;
+            rdf:rest () ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                    swrl:argument1 <urn:swrl#x> ;
+                    swrl:argument2 "A list item cannot be followed by itself" ;
+                    swrl:propertyPredicate error:hasError ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#l> ;
+                    swrl:argument2 <urn:swrl#i> ;
+                    swrl:propertyPredicate co:lastItem ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                            swrl:argument1 <urn:swrl#l> ;
+                            swrl:argument2 <urn:swrl#value> ;
+                            swrl:propertyPredicate co:size ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                    swrl:argument1 <urn:swrl#i> ;
+                    swrl:argument2 <urn:swrl#value> ;
+                    swrl:propertyPredicate co:index ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#i> ;
+                    swrl:argument2 <urn:swrl#l> ;
+                    swrl:propertyPredicate co:itemOf ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                            swrl:argument1 <urn:swrl#i> ;
+                            swrl:argument2 <urn:swrl#value> ;
+                            swrl:propertyPredicate co:index ] ;
+                    rdf:rest [ a swrl:AtomList ;
+                            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                                    swrl:argument1 <urn:swrl#l> ;
+                                    swrl:argument2 <urn:swrl#value> ;
+                                    swrl:propertyPredicate co:size ] ;
+                            rdf:rest () ] ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#l> ;
+                    swrl:argument2 <urn:swrl#i> ;
+                    swrl:propertyPredicate co:lastItem ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#li1> ;
+                    swrl:argument2 <urn:swrl#l> ;
+                    swrl:propertyPredicate co:itemOf ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl#li2> ;
+                            swrl:argument2 <urn:swrl#l> ;
+                            swrl:propertyPredicate co:itemOf ] ;
+                    rdf:rest [ a swrl:AtomList ;
+                            rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                                    swrl:argument1 <urn:swrl#li1> ;
+                                    swrl:argument2 <urn:swrl#r1> ;
+                                    swrl:propertyPredicate co:index ] ;
+                            rdf:rest [ a swrl:AtomList ;
+                                    rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                                            swrl:argument1 <urn:swrl#li2> ;
+                                            swrl:argument2 <urn:swrl#r2> ;
+                                            swrl:propertyPredicate co:index ] ;
+                                    rdf:rest [ a swrl:AtomList ;
+                                            rdf:first [ a swrl:BuiltinAtom ;
+                                                    swrl:arguments [ a rdf:List ;
+                                                            rdf:first <urn:swrl#r2> ;
+                                                            rdf:rest [ a rdf:List ;
+                                                                    rdf:first <urn:swrl#r1> ;
+                                                                    rdf:rest [ a rdf:List ;
+                                                                            rdf:first 1 ;
+                                                                            rdf:rest () ] ] ] ;
+                                                    swrl:builtin swrlb:add ] ;
+                                            rdf:rest () ] ] ] ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#li1> ;
+                    swrl:argument2 <urn:swrl#li2> ;
+                    swrl:propertyPredicate co:nextItem ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#li> ;
+                    swrl:argument2 <urn:swrl#l> ;
+                    swrl:propertyPredicate co:itemOf ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:DatavaluedPropertyAtom ;
+                            swrl:argument1 <urn:swrl#li> ;
+                            swrl:argument2 "1" ;
+                            swrl:propertyPredicate co:index ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl#l> ;
+                    swrl:argument2 <urn:swrl#li> ;
+                    swrl:propertyPredicate co:firstItem ] ;
+            rdf:rest () ] .
+

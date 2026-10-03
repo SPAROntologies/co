@@ -1,0 +1,31 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:Bag a owl:Class ;
+    rdfs:label "bag"@en ;
+    vann:example """
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+
+    :citation-1 a co:Item ; 
+        co:itemContent :paper-1 .
+
+    :citation-2 a co:Item ; 
+        co:itemContent :paper-2 .
+
+    :citation-3 a co:Item ; 
+        co:itemContent :paper-1 .
+    """ ;
+    rdfs:comment "Collection that can have a number of copies of each object"@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf co:Collection ;
+    owl:disjointWith co:Set ;
+    vs:term_status reg:statusStable .
+

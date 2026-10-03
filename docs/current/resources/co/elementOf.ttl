@@ -1,0 +1,18 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:elementOf a owl:ObjectProperty ;
+    rdfs:label "is element of"@en ;
+    vann:example """
+    :paper-1 
+        co:elementOf :reading-list .
+    """ ;
+    rdfs:comment "The relation between an object and a collection in which the object is member."@en ;
+    rdfs:isDefinedBy co: ;
+    owl:inverseOf co:element ;
+    vs:term_status reg:statusStable .
+

@@ -1,0 +1,10 @@
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#label> "has previous item"@en .
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/precededBy> .
+<http://purl.org/co/previousItem> <http://purl.org/vocab/vann/example> "\n    :author-3 \n        co:previousItem :author-2 .\n    \n    :author-2 \n        co:previousItem :author-1 .\n    " .
+<http://purl.org/co/previousItem> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/nextItem> .
+<http://purl.org/co/previousItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the previous item in a list."@en .
+<http://purl.org/co/previousItem> <http://www.w3.org/2004/02/skos/core#note> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1]."@en .
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/previousItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .

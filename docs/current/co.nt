@@ -1,0 +1,572 @@
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#label> "has previous item"@en .
+<http://purl.org/co/element> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b98 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#li2> .
+<http://purl.org/co/lastItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b55 .
+<http://purl.org/co/followedBy> <http://purl.org/vocab/vann/example> "\n    :author-1 \n        co:followedBy :author-2 , \n                :author-3 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b58 .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b78 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#value> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b25 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/index> .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/description> "\nThe **_Collections Ontology (CO)_** is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).\n\n![The main architecture of CO.](co.png)\n\nThe main class of CO is `co:Collection`, i.e. a group of objects that can be considered as a whole. \nEach collection is linked to the objects it contains by means of the property `co:element` (with `co:elementOf` as its inverse), and to the number of objects it contains by means of the property `co:size`. \nA collection has exactly one size.\n\nCO defines three kinds of collections:\n\n- `co:Set`, an unordered collection that cannot contain duplicate elements;\n- `co:Bag`, an unordered collection that can contain the same element more than once;\n- `co:List`, a bag in which the elements are ordered.\n\nSince the same object can be in a bag more than once, a bag is not only linked to its elements. \nEach occurrence of an object in a bag is a `co:Item`, and each list item in a list is a `co:ListItem`, which is a subclass of `co:Item`. \n\n![The representation of a set according to CO.](set.png)\n\nA `co:Set` is the simplest collection of CO. \nA set is directly linked to each of its members by means of `co:element`. \nNo item is necessary, since each object can be in a set only once. \nThe size of a set is the number of its elements.\n\n![The representation of a bag according to CO.](bag.png)\n\nA `co:Bag` is linked to its items by means of `co:item`. \nEach `co:Item` is one occurrence of an object in the bag, and it is linked to that object by means of the functional property `co:itemContent`. \nAn item cannot be the content of another item. \nTwo items of the same bag can have the same content: this is how a bag contains duplicates.\n\nThe property chain `co:item o co:itemContent` is a subproperty of `co:element`. \nThus, the elements of a bag are inferred from its items. \nThe size of a bag is the number of its items, not the number of its distinct elements.\n\n![The representation of a list according to CO.](list.png)\n\nA `co:List` is a bag in which all the items are `co:ListItem`s.\nA list has at most one first item (`co:firstItem`) and at most one last item (`co:lastItem`). \n\nEach list item has exactly one position in the list, starting from 1, specified by means of `co:index`. \nEach list item is linked to the list item that immediately follows it by means of `co:nextItem`, and to the list item that immediately precedes it by means of `co:previousItem`. \nThe property chain `co:item o co:nextItem` is a subproperty of `co:item`. Thus, it is sufficient to specify the first item of a list and the chain of `co:nextItem` relations: all the other items of the list are inferred.\n\nCO also includes some SWRL rules that complete the description of a list:\n\n- the index of a list item is the index of its previous item plus one;\n- two items of the same list with consecutive indexes are linked by `co:nextItem`;\n- the item of a list with index 1 is the first item of the list;\n- the size of a list is the index of its last item, and the item whose index is equal to the size of the list is the last item of the list;\n- a list item that is preceded or followed by itself raises an error (`error:hasError`).\n\n## Examples of use\n\nIn the following subsections, we introduce some examples to showcase how to use CO. \n\nThe prefixes that are used in all the examples provided below are defined as follows:\n\n        @prefix : <http://www.sparontologies.net/example/> .\n        @prefix co: <http://purl.org/co/> .\n        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n### A reading list as a set\n\nA reading list contains two papers. \nThe order of the papers is not relevant and each paper is in the reading list only once. \nThus, the reading list is a `co:Set` that is linked to its members with `co:element`.\n\n        :reading-list a co:Set ;\n            co:element :paper-1 , :paper-2 ;\n            co:size \"2\"^^xsd:nonNegativeInteger .\n\n### In-text citations as a bag\n\nThe text of an article cites `:paper-1` twice and `:paper-2` once. \nThe order of the citations is not relevant, but the number of times each paper is cited is. \nThus, the citations are a `co:Bag` of three `co:Item`s: each item is one occurrence, and `co:itemContent` links the item to the cited paper. \nThe statements `:citations co:element :paper-1 , :paper-2` are inferred by means of the property chain `co:item o co:itemContent`.\n\n        :citations a co:Bag ;\n            co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n            co:size \"3\"^^xsd:nonNegativeInteger .\n\n        :citation-1 a co:Item ; \n                co:itemContent :paper-1 .\n\n        :citation-2 a co:Item ; \n                co:itemContent :paper-2 .\n\n        :citation-3 a co:Item ; \n                co:itemContent :paper-1 .\n\n### The authors of a paper as a list\n\nA paper has three authors, and their order is relevant. \nThus, the authors are a `co:List` of three `co:ListItem`s. \nEach list item has a position (`co:index`), refers to one author (`co:itemContent`) and is linked to the list item that follows it (`co:nextItem`).\n\n        :authors a co:List ;\n            co:firstItem :author-1 ;\n            co:item :author-1 , :author-2 , :author-3 ;\n            co:lastItem :author-3 ;\n            co:size \"3\"^^xsd:nonNegativeInteger .\n\n        :author-1 a co:ListItem ;\n            co:index \"1\"^^xsd:positiveInteger ;\n            co:itemContent :alice ;\n            co:nextItem :author-2 .\n\n        :author-2 a co:ListItem ;\n            co:index \"2\"^^xsd:positiveInteger ;\n            co:itemContent :bob ;\n            co:nextItem :author-3 .\n\n        :author-3 a co:ListItem ;\n            co:index \"3\"^^xsd:positiveInteger ;\n            co:itemContent :carol .\n\n## Competency Questions\n\nCO can be used for answering several questions related to different ways entities can be grouped into aggregates and organized into collections.\nIn the following subsections, some of them are introduced together with their respective SPARQL queries. \n\nThe prefixes that are used in all the SPARQL queries provided below are defined as follows:\n        \n        PREFIX : <http://www.sparontologies.net/example/>\n        PREFIX co: <http://purl.org/co/>\n\n### CQ1\n\nWhat are the entities that belong to a collection?\n\n        SELECT DISTINCT ?collection ?element\n        WHERE {\n            ?collection co:element|co:item/co:itemContent ?element .\n        }\n\n### CQ2\n\nHow many times does each entity appear in a bag?\n\n        SELECT ?element (COUNT(?item) AS ?occurrences)\n        WHERE {\n            :citations co:item ?item .\n            ?item co:itemContent ?element .\n        }\n        GROUP BY ?element\n\n### CQ3\n\nWhat is the size of a collection?\n\n        SELECT ?collection ?size\n        WHERE {\n            ?collection co:size ?size .\n        }\n\n### CQ4\n\nWhat are the first entity and the last entity of a list?\n\n        SELECT ?first ?last\n        WHERE {\n            :authors co:firstItem/co:itemContent ?first ;\n                co:lastItem/co:itemContent ?last .\n        }\n\n### CQ5\n\nWhich entity is at a given position of a list?\n\n        SELECT ?element\n        WHERE {\n            :authors co:item ?item .\n            ?item co:index ?index ;\n                co:itemContent ?element .\n            FILTER (?index = 2)\n        }\n\n    "@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b39 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#r> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b89 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#r1> .
+<http://purl.org/co/index> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/ListItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b82 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/lastItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b103 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b32 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b51 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.essepuntato.it/2009/10/error/hasError> .
+<http://purl.org/co> <http://xmlns.com/foaf/0.1/logo> <https://github.com/SPAROntologies/co/blob/master/spar.png> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b96 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/itemContent> .
+<http://purl.org/co/nextItem> <http://www.w3.org/2000/01/rdf-schema#label> "has next item"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b76 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#i> .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/ListItem> <http://purl.org/vocab/vann/example> "\n    :author-2 a co:ListItem ;\n        co:itemOf :authors ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:previousItem :author-1 ;\n        co:nextItem :author-3 .\n    " .
+<http://purl.org/co/Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b41 .
+<urn:swrl#nextR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/spar/error> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/spar/error/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <urn:swrl#r1> .
+<http://purl.org/co> <http://purl.org/dc/terms/source> <https://github.com/SPAROntologies/co/blob/master/docs/cq.md> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#comment> "An element belonging to a bag."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b98 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li1> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b74 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b75 .
+<urn:swrl#li> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <urn:swrl#r2> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b19 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b21 .
+<http://purl.org/co> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b37 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/nextItem> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/co/Item> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b20 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/nextItem> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/nextItem> .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#comment> "An ordered array of items, that can be present in multiple copies"@en .
+<http://purl.org/co/itemContentOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b39 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b55 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/co/Item> .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b13 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b16 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b59 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b37 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#next> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/List> .
+<urn:swrl#li1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b64 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#x> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b9 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b52 <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b53 .
+<http://purl.org/co> <http://purl.org/dc/terms/modified> "2026-10-02" .
+_:nabc9bd0c26da48e5a90b3891a64505e6b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b44 .
+<http://purl.org/co/itemContent> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/itemOf> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#comment> "An element belonging to a list."@en .
+<http://purl.org/co/Bag> <http://purl.org/vocab/vann/example> "\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :citation-1 a co:Item ; \n        co:itemContent :paper-1 .\n\n    :citation-2 a co:Item ; \n        co:itemContent :paper-2 .\n\n    :citation-3 a co:Item ; \n        co:itemContent :paper-1 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b76 .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Collection> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b69 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b80 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#value> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#range> _:nabc9bd0c26da48e5a90b3891a64505e6b13 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b35 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b45 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b101 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b62 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b63 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/previousItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b99 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b104 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b4 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/followedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/co/ListItem> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#label> "collection"@en .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#label> "has size"@en .
+<http://purl.org/co/List> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/contributor> "Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/co/nextItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b85 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li1> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/co/itemOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b93 <http://www.w3.org/2003/11/swrl#arguments> _:nabc9bd0c26da48e5a90b3891a64505e6b94 .
+<http://purl.org/co> <http://purl.org/dc/terms/created> "2012-03-12" .
+_:nabc9bd0c26da48e5a90b3891a64505e6b52 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b60 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b25 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<urn:swrl#x> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/precededBy> <http://www.w3.org/2000/01/rdf-schema#label> "is preceded by"@en .
+<urn:swrl#r2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://purl.org/co/size> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/co/index> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b46 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#nextR> .
+<http://purl.org/co> <https://schema.org/image> <https://github.com/SPAROntologies/co/blob/master/docs/current/list.png> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b41 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#add> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/Collection> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/co/Item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b101 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#l> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b105 .
+<http://purl.org/co/element> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:nabc9bd0c26da48e5a90b3891a64505e6b1 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b76 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/itemOf> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b32 .
+<http://purl.org/co/List> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:firstItem :author-1 ;\n        co:item :author-1 , \n                :author-2 , \n                :author-3 ;\n        co:lastItem :author-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :author-1 a co:ListItem ;\n        co:index \"1\"^^xsd:positiveInteger ;\n        co:itemContent :alice ;\n        co:nextItem :author-2 .\n\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:nextItem :author-3 .\n\n    :author-3 a co:ListItem ;\n        co:index \"3\"^^xsd:positiveInteger ;\n        co:itemContent :carol .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b66 <http://www.w3.org/2003/11/swrl#argument2> "A list item cannot be followed by itself" .
+_:nabc9bd0c26da48e5a90b3891a64505e6b79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/Collection> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b82 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b35 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b36 .
+<http://purl.org/co/followedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is followed by"@en .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#label> "has last item"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of items belonging to a collection."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b62 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b65 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b80 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b54 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co> <https://schema.org/image> <https://github.com/SPAROntologies/co/blob/master/docs/current/bag.png> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the previous item in a list."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b67 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b68 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/itemOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and a bag in which the item is member."@en .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Collection> .
+<http://purl.org/co/elementOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/element> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b34 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b30 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#last> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co> <https://schema.org/codeRepository> <https://github.com/SPAROntologies/co> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a bag and every item of the bag"@en .
+<http://purl.org/co/Set> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b59 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/co/ListItem> .
+<http://purl.org/dc/elements/1.1/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b15 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b73 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b46 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#next> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/followedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the following item in a list."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b12 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b80 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#l> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b69 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/lastItem> .
+<http://purl.org/dc/elements/1.1/format> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b103 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b78 .
+<http://purl.org/co> <https://schema.org/keywords> "scholarly publishing"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b12 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/firstItem> .
+<http://purl.org/co> <https://schema.org/keywords> "semantic publishing"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b101 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b6 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b9 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://purl.org/co/ListItem> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/nextItem> <http://www.w3.org/2004/02/skos/core#note> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."@en .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b51 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co> <http://purl.org/dc/terms/bibliographicCitation> "Ciccarese, P., & Peroni, S. (2014). The Collections Ontology: creating and handling collections in OWL 2 DL frameworks. Semantic Web, 5(6), 515-529. DOI: https://doi.org/10.3233/SW-130121." .
+<urn:swrl#value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b32 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#r> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b73 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#value> .
+<http://purl.org/co/nextItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b92 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b73 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#i> .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/2000/01/rdf-schema#label> "is first item of"@en .
+<http://purl.org/co/Bag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#label> "item"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b87 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the last item of the list."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b51 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.essepuntato.it/2009/10/error/hasError> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b53 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b56 .
+<http://purl.org/co> <https://schema.org/image> <https://github.com/SPAROntologies/co/blob/master/docs/current/set.png> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b46 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+<http://purl.org/co/itemContent> <http://purl.org/vocab/vann/example> "\n    :citation-1 a co:Item ;\n        co:itemContent :paper-1 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b69 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#l> .
+<urn:swrl#r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/element> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#label> "has first item"@en .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b25 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/co/element> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b49 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> .
+<http://purl.org/co> <http://www.w3.org/2002/07/owl#versionInfo> "2.1.0"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b49 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b91 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li2> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b93 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#add> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b80 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/size> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b28 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b33 .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co> <https://schema.org/includedInDataCatalog> <https://fairsharing.org/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b47 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b48 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b77 .
+<http://purl.org/co/item> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/itemOf> <http://purl.org/vocab/vann/example> "\n    :citation-1 a co:Item ;\n        co:itemOf :citations .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b76 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#l> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b98 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/nextItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b38 .
+<http://purl.org/co/itemContentOf> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b73 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+<http://purl.org/co/Item> <http://purl.org/vocab/vann/example> "\n    :citation-1 a co:Item ;\n        co:itemOf :citations ;\n        co:itemContent :paper-1 .\n    " .
+<http://purl.org/co/size> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b82 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#l> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co/index> <http://www.w3.org/2000/01/rdf-schema#label> "has index"@en .
+<http://purl.org/co/Set> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    " .
+<http://purl.org/co/nextItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/followedBy> .
+<http://purl.org/co/Collection> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Collection ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    " .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/co/followedBy> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/itemContentOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an object and the item that refers to the object."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b103 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co/firstItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/previousItem> <http://purl.org/vocab/vann/example> "\n    :author-3 \n        co:previousItem :author-2 .\n    \n    :author-2 \n        co:previousItem :author-1 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b91 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#r2> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b46 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b15 <http://www.w3.org/2002/07/owl#hasValue> "1"^^<http://www.w3.org/2001/XMLSchema#positiveInteger> .
+<http://purl.org/co> <http://purl.org/dc/terms/issued> "2012-03-12" .
+<http://purl.org/co> <https://schema.org/keywords> "scientometrics"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b83 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b84 .
+<urn:swrl#last> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://purl.org/co/itemOf> <http://www.w3.org/2000/01/rdf-schema#label> "is item of"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b7 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b85 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/itemOf> .
+<http://purl.org/co/index> <http://www.w3.org/2000/01/rdf-schema#comment> "A number identifying the position, starting from 1, of a particular list item within a list."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/item> .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an object and a list in which the object is last item."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/precededBy> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/itemContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/itemOf> .
+<http://purl.org/co/itemOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b91 .
+<http://purl.org/co/size> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b12 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/elementOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an object and a collection in which the object is member."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b61 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/Bag> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b70 .
+<http://purl.org/co/precededBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the preceding item in a list."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b82 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#i> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b2 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b98 .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Bag> .
+<http://purl.org/co/Item> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/nextItem> <http://purl.org/vocab/vann/example> "\n    :author-1 \n        co:nextItem :author-2 .\n\n    :author-2 \n        co:nextItem :author-3 .\n    " .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the actual resource to which the item refers."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b22 .
+<http://purl.org/co/Set> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/co/Collection> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b37 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+<http://purl.org/co/elementOf> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b31 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b93 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co> <http://www.w3.org/2002/07/owl#backwardCompatibleWith> <https://raw.githubusercontent.com/collections-ontology/collections-ontology/refs/heads/master/collections.owl> .
+<http://purl.org/co> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/co"@en .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b89 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b86 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co/index> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b99 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b100 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/elementOf> <http://purl.org/vocab/vann/example> "\n    :paper-1 \n        co:elementOf :reading-list .\n    " .
+<urn:swrl#i> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://purl.org/co> <http://purl.org/vocab/vann/preferredNamespacePrefix> "co"@en .
+<http://purl.org/co> <https://schema.org/image> <https://github.com/SPAROntologies/co/blob/master/docs/current/co.png> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b54 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/firstItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b34 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#r> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#range> _:nabc9bd0c26da48e5a90b3891a64505e6b3 .
+<http://purl.org/co/elementOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an object and a list in which the object is first item."@en .
+<http://purl.org/co> <http://purl.org/ontology/bibo/doi> "TBA" .
+<http://purl.org/co/precededBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b66 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b34 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/size> .
+<http://purl.org/co/itemContent> <http://www.w3.org/2000/01/rdf-schema#label> "has item content"@en .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b24 <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b23 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/co/Bag> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co> <https://schema.org/keywords> "collections"@en .
+<http://purl.org/co/Bag> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/co/Collection> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a list and the first item of the list."@en .
+<http://purl.org/co/previousItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/firstItemOf> <http://purl.org/vocab/vann/example> "\n    :author-1 a co:ListItem ;\n        co:firstItemOf :authors .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b90 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b66 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.essepuntato.it/2009/10/error/hasError> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b37 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#current> .
+<http://purl.org/co> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/size> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b11 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b78 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#i> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b14 .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/contributor> "Marco Ocana"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/List> .
+<http://purl.org/co/List> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b7 .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<urn:swrl#current> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b49 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#x> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#label> "has error"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b88 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b87 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/itemOf> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b14 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#label> "has item"@en .
+<http://purl.org/co/item> <http://purl.org/vocab/vann/example> "\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b39 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#current> .
+<urn:swrl#next> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/elementOf> <http://www.w3.org/2000/01/rdf-schema#label> "is element of"@en .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/2000/01/rdf-schema#label> "is last item of"@en .
+<http://purl.org/co/nextItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co> <http://www.w3.org/2002/07/owl#priorVersion> <https://raw.githubusercontent.com/collections-ontology/collections-ontology/refs/heads/master/collections.owl> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b6 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b57 .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b5 .
+<http://purl.org/co/precededBy> <http://purl.org/vocab/vann/example> "\n    :author-3 \n        co:precededBy :author-2 , \n                :author-1 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b54 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/co/Item> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b71 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#value> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/lastItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b64 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b39 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b34 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#list> .
+<http://purl.org/co> <https://schema.org/keywords> "bibliometrics"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b85 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#l> .
+<http://purl.org/co/Set> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/Collection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/nextItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b20 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b17 .
+<http://purl.org/co/nextItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b103 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b32 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#last> .
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b66 .
+<http://purl.org/co/itemContentOf> <http://purl.org/vocab/vann/example> "\n    :paper-1 \n        co:itemContentOf :citation-1 , \n                :citation-3 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b30 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#list> .
+<http://purl.org/co/item> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:nabc9bd0c26da48e5a90b3891a64505e6b26 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b79 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b55 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/lastItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b67 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b72 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b71 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2004/02/skos/core#note> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1]."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b59 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/item> .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a collection and the members of a collection"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b69 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#i> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b20 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/Set> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/ListItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <urn:swrl#nextR> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b102 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b101 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li> .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/element> <http://www.w3.org/2000/01/rdf-schema#label> "has element"@en .
+<http://purl.org/co/followedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/precededBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/followedBy> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b41 <http://www.w3.org/2003/11/swrl#arguments> _:nabc9bd0c26da48e5a90b3891a64505e6b42 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b14 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/previousItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b85 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#range> _:nabc9bd0c26da48e5a90b3891a64505e6b19 .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#comment> "A description, usually in natural language, of which kind of error results from a resource."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/co/Bag> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/followedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b89 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li1> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/date> "2026-10-02"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b15 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b95 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b5 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<urn:swrl#r1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://purl.org/co> <http://www.w3.org/2002/07/owl#versionIRI> <http://purl.org/co/2026-10-02> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b23 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+<http://purl.org/co/item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/itemContentOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/Set> <http://www.w3.org/2000/01/rdf-schema#comment> "A collection that cannot contain duplicate elements."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#label> "list"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#domain> _:nabc9bd0c26da48e5a90b3891a64505e6b4 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b47 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b50 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b103 <http://www.w3.org/2003/11/swrl#argument2> "1" .
+_:nabc9bd0c26da48e5a90b3891a64505e6b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b71 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#l> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b27 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b105 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+<http://purl.org/co/followedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/firstItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b40 .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/co/Item> .
+<http://purl.org/co> <http://purl.org/dc/terms/publisher> <https://ror.org/00wb4mk85> .
+<http://purl.org/co/firstItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:firstItem :author-1 .\n    " .
+<http://purl.org/co/size> <http://www.w3.org/2004/02/skos/core#note> "\nCO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:\n- the size of the set {a, b, c} is three;\n- the size of the bag [a, a, b, b, b, c] is five;\n- the size of the list (a, b, c, b, a, b, c, c) is seven."@en .
+<urn:swrl#list> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b83 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b97 .
+<http://purl.org/co/firstItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/List> .
+<http://purl.org/co/size> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b18 .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b3 <http://www.w3.org/2002/07/owl#complementOf> <http://purl.org/co/Item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b51 <http://www.w3.org/2003/11/swrl#argument2> "A list item cannot be preceded by itself" .
+<http://purl.org/co/lastItemOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/itemOf> .
+<http://purl.org/co/precededBy> <http://www.w3.org/2004/02/skos/core#note> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1]."@en .
+<http://purl.org/co/Bag> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/co/Set> .
+<http://purl.org/co/itemContentOf> <http://www.w3.org/2000/01/rdf-schema#label> "is item content of"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b28 <http://www.w3.org/2003/11/swrl#body> _:nabc9bd0c26da48e5a90b3891a64505e6b29 .
+<http://purl.org/co/List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b8 .
+<http://purl.org/co/Bag> <http://www.w3.org/2000/01/rdf-schema#comment> "Collection that can have a number of copies of each object"@en .
+<http://purl.org/co/lastItemOf> <http://purl.org/vocab/vann/example> "\n    :author-3 a co:ListItem ;\n        co:lastItemOf :authors .\n    " .
+<http://purl.org/co/itemOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/item> .
+<http://purl.org/co/Item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <urn:swrl#r> .
+<urn:swrl#li2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b74 <http://www.w3.org/2003/11/swrl#head> _:nabc9bd0c26da48e5a90b3891a64505e6b81 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b23 <http://www.w3.org/2002/07/owl#onProperty> _:nabc9bd0c26da48e5a90b3891a64505e6b24 .
+<http://purl.org/co/element> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 .\n    " .
+<http://purl.org/co/elementOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b105 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#l> .
+<http://purl.org/co/previousItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/precededBy> .
+<http://purl.org/co/precededBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/Bag> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b87 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#l> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co/firstItemOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b64 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/followedBy> .
+<http://purl.org/co/firstItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/List> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#label> "list item"@en .
+<http://purl.org/co> <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/published> .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/creator> "Paolo Ciccarese (https://orcid.org/0000-0002-5156-2703)"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b87 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#li2> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+<http://purl.org/co/followedBy> <http://www.w3.org/2004/02/skos/core#note> "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is followed by I[i+1], ... , I[n-1] and I[n]."@en .
+<http://purl.org/co/ListItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b101 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/itemOf> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b105 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#li> .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/title> "The Collections Ontology (CO)"@en .
+<http://purl.org/co/followedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/ListItem> .
+<http://purl.org/co/Bag> <http://www.w3.org/2000/01/rdf-schema#label> "bag"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b43 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b78 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+<http://purl.org/co/itemContentOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/co/itemContent> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b64 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> .
+<http://purl.org/co/index> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+<http://purl.org/co/Set> <http://www.w3.org/2000/01/rdf-schema#label> "set"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b71 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/size> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b91 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b30 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b7 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/lastItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b89 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/index> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b105 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/firstItem> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "A group of objects that can be considered as a whole."@en .
+<http://purl.org/co/precededBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/co/itemContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b30 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/lastItem> .
+<http://purl.org/co/index> <http://purl.org/vocab/vann/example> "\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b8 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b10 .
+<http://purl.org/co/nextItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the next item in a list."@en .
+<http://purl.org/co> <http://purl.org/dc/elements/1.1/creator> "Silvio Peroni (http://orcid.org/0000-0003-0530-4305)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/co/previousItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<urn:swrl#l> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b49 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/co/precededBy> .
+<http://purl.org/co/index> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .

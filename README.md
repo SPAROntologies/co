@@ -1,12 +1,16 @@
-## Collections Ontology
+# Collectiona Ontology (CO)
 
-The Collections Ontology (CO) defines unordered collections (Set and Bag) and ordered collections (or List). This ontology has been inspired by the work "Putting OWL in Order: Patterns for Sequences in OWL" by Drummond et al. (OWL-ED 2006).
+The **_Collections Ontology (CO)_** is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).
 
-*Citation*<br/>
-Ciccarese P, Peroni S. The Collections Ontology: creating and handling collections in OWL 2 DL frameworks.
-Semantic Web Journal. 2013 (accepted on July 23rd, in press)
+**URL:** http://purl.org/co
 
-### Authors
+**Creators**: [Paolo Ciccarese](https://orcid.org/0000-0002-5156-2703), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
 
-* Paolo Ciccarese http://paolociccarese.info,	Massachusetts General Hospital and Harvard Medical School<br/>
-* Silvio Peroni,	Universita' di Bologna
+**Contributors**: [Sebastian Barzaghi](https://orcid.org/0000-0002-0799-1527)
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Cite as:** Ciccarese, P., & Peroni, S. (2014). The Collections Ontology: creating and handling collections in OWL 2 DL frameworks. Semantic Web, 5(6), 515-529. DOI: https://doi.org/10.3233/SW-130121.
+
+
+

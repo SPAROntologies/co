@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="http://purl.org/co/ListItem">
+    <rdfs:label xml:lang="en">list item</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/co/Item"/>
+    <rdfs:subClassOf rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b25"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">An element belonging to a list.</rdfs:comment>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <vann:example>
+    :author-2 a co:ListItem ;
+        co:itemOf :authors ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:previousItem :author-1 ;
+        co:nextItem :author-3 .
+    </vann:example>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nabc9bd0c26da48e5a90b3891a64505e6b25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+</rdf:RDF>

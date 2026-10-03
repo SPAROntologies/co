@@ -1,0 +1,19 @@
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/List> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nabc9bd0c26da48e5a90b3891a64505e6b20 .
+_:nabc9bd0c26da48e5a90b3891a64505e6b20 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the last item of the list."@en .
+<http://purl.org/co/lastItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    " .
+_:nabc9bd0c26da48e5a90b3891a64505e6b20 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/nextItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nabc9bd0c26da48e5a90b3891a64505e6b22 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#label> "has last item"@en .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/item> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#range> _:nabc9bd0c26da48e5a90b3891a64505e6b19 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b19 <http://www.w3.org/2002/07/owl#intersectionOf> _:nabc9bd0c26da48e5a90b3891a64505e6b21 .

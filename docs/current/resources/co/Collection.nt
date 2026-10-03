@@ -1,0 +1,16 @@
+<http://purl.org/co/Collection> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#label> "collection"@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b5 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "A group of objects that can be considered as a whole."@en .
+_:nabc9bd0c26da48e5a90b3891a64505e6b5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/size> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/Collection> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/co/Item> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b6 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#Thing> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nabc9bd0c26da48e5a90b3891a64505e6b6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/element> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b5 .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nabc9bd0c26da48e5a90b3891a64505e6b6 .
+<http://purl.org/co/Collection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/Collection> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Collection ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    " .
