@@ -7,12 +7,12 @@
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
   <rdf:Description rdf:about="http://purl.org/co/nextItem">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:label xml:lang="en">has next item</rdfs:label>
     <rdfs:comment xml:lang="en">The relation between an item and the next item in a list.</rdfs:comment>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/followedBy"/>
+    <rdfs:label xml:lang="en">has next item</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
     <vann:example>
     :author-1 
         co:nextItem :author-2 .
@@ -20,7 +20,7 @@
     :author-2 
         co:nextItem :author-3 .
     </vann:example>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/followedBy"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1].</skos:note>
   </rdf:Description>
 </rdf:RDF>
