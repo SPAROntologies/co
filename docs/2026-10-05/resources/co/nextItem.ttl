@@ -1,0 +1,24 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:nextItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has next item"@en ;
+    vann:example """
+    :author-1 
+        co:nextItem :author-2 .
+
+    :author-2 
+        co:nextItem :author-3 .
+    """ ;
+    rdfs:comment "The relation between an item and the next item in a list."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subPropertyOf co:followedBy ;
+    vs:term_status reg:statusStable ;
+    skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."@en .
+

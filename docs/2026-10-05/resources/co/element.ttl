@@ -1,0 +1,21 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:element a owl:ObjectProperty ;
+    rdfs:label "has element"@en ;
+    vann:example """
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 .
+    """ ;
+    rdfs:comment "The relation between a collection and the members of a collection"@en ;
+    rdfs:domain co:Collection ;
+    rdfs:isDefinedBy co: ;
+    owl:propertyChainAxiom ( co:item co:itemContent ) ;
+    vs:term_status reg:statusStable .
+

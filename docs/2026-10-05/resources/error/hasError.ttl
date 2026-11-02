@@ -1,0 +1,17 @@
+@prefix error: <http://www.essepuntato.it/2009/10/error/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+error:hasError a owl:DatatypeProperty ;
+    rdfs:label "has error"@en ;
+    rdfs:comment "A description, usually in natural language, of which kind of error results from a resource."@en ;
+    rdfs:domain [ a owl:Restriction ;
+            owl:cardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty error:hasError ] ;
+    rdfs:isDefinedBy <http://purl.org/spar/error/> ;
+    rdfs:range xsd:string ;
+    vs:term_status reg:statusStable .
+
