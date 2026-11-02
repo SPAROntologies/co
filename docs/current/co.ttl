@@ -21,7 +21,7 @@
         "Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)"^^xsd:string ;
     dc:creator "Paolo Ciccarese (https://orcid.org/0000-0002-5156-2703)"^^xsd:string,
         "Silvio Peroni (http://orcid.org/0000-0003-0530-4305)"^^xsd:string ;
-    dc:date "2026-10-02"^^xsd:string ;
+    dc:date "2026-10-05"^^xsd:string ;
     dc:description """
 The **_Collections Ontology (CO)_** is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).
 
@@ -210,26 +210,31 @@ Which entity is at a given position of a list?
     dcterms:created "2012-03-12" ;
     dcterms:issued "2012-03-12" ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-10-02" ;
+    dcterms:modified "2026-10-05" ;
     dcterms:publisher <https://ror.org/00wb4mk85> ;
     dcterms:source <https://github.com/SPAROntologies/co/blob/master/docs/cq.md> ;
     bibo:doi "TBA" ;
     bibo:status <http://purl.org/ontology/bibo/status/published> ;
     vann:preferredNamespacePrefix "co"@en ;
     vann:preferredNamespaceUri "http://purl.org/co"@en ;
-    owl:backwardCompatibleWith <https://raw.githubusercontent.com/collections-ontology/collections-ontology/refs/heads/master/collections.owl> ;
+    owl:backwardCompatibleWith co:2026-10-02 ;
     owl:imports <http://purl.org/spar/error> ;
-    owl:priorVersion <https://raw.githubusercontent.com/collections-ontology/collections-ontology/refs/heads/master/collections.owl> ;
-    owl:versionIRI co:2026-10-02 ;
-    owl:versionInfo "2.1.0"^^xsd:string ;
-    foaf:logo <https://github.com/SPAROntologies/co/blob/master/spar.png> ;
+    owl:priorVersion co:2026-10-02 ;
+    owl:versionIRI co:2026-10-05 ;
+    owl:versionInfo "2.1.1"^^xsd:string ;
+    vann:changes <https://github.com/SPAROntologies/co/blob/master/CHANGELOG.md> ;
+    foaf:logo <https://github.com/SPAROntologies/sparontologies.github.io/blob/master/static/img/spar/spar-logo.png> ;
     schema:codeRepository <https://github.com/SPAROntologies/co> ;
     schema:image <https://github.com/SPAROntologies/co/blob/master/docs/current/bag.png>,
         <https://github.com/SPAROntologies/co/blob/master/docs/current/co.png>,
         <https://github.com/SPAROntologies/co/blob/master/docs/current/list.png>,
         <https://github.com/SPAROntologies/co/blob/master/docs/current/set.png> ;
     schema:includedInDataCatalog <https://fairsharing.org/> ;
-    schema:keywords "bibliometrics"@en,
+    dc:language <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+    schema:keywords 
+        "SPAR Ontologies"@en ,
+        "Semantic Publishing and Referencing Ontologies"@en ,
+        "bibliometrics"@en,
         "collections"@en,
         "scholarly publishing"@en,
         "scientometrics"@en,
@@ -241,7 +246,7 @@ co:elementOf a owl:ObjectProperty ;
     :paper-1 
         co:elementOf :reading-list .
     """ ;
-    rdfs:comment "The relation between an object and a collection in which the object is member."@en ;
+    rdfs:comment "The relation between an object and a collection which the object is a member of."@en ;
     rdfs:isDefinedBy co: ;
     owl:inverseOf co:element ;
     vs:term_status reg:statusStable .

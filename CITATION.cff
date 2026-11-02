@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+title: The Collections Ontology (CO)
+message: >-
+If you use this software, please cite it using the
+metadata from this file.
+type: software
+authors:
+- given-names: Silvio
+  family-names: Peroni
+  orcid: 'https://orcid.org/0000-0003-0530-4305'
+- given-names: Paolo
+  family-names: Ciccarese
+  orcid: 'https://orcid.org/0000-0002-5156-2703'
+repository-code: 'https://github.com/SPAROntologies/co'
+abstract: The Collections Ontology (CO) is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).
+keywords:
+- collections
+- bibliometrics
+- scholarly publishing
+- scientometrics
+- semantic publishing
+license: CC-BY-4.0
+version: 2.1.1
+date-released: '2026-10-05'
+preferred-citation:
+    type: article
+    authors:
+    - family-names: "Ciccarese"
+      given-names: "Paolo"
+      orcid: "https://orcid.org/0000-0002-5156-2703"
+    - family-names: "Peroni"
+      given-names: "Silvio"
+      orcid: "https://orcid.org/0000-0003-0530-4305"
+    doi: "10.3233/SW-130121"
+    journal: "Semantic Web"
+    issue: 5
+    volume: 6
+    start: 515
+    end: 529
+    title: "The Collections Ontology: creating and handling collections in OWL 2 DL frameworks"
+    year: 2014
