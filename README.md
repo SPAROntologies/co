@@ -1,5 +1,11 @@
 # Collections Ontology (CO)
 
+[![License](https://img.shields.io/github/license/SPAROntologies/co)](LICENSE.md)
+[![Release](https://img.shields.io/github/v/release/SPAROntologies/co)](https://github.com/SPAROntologies/co/releases/latest)
+[![Tests](https://img.shields.io/github/actions/workflow/status/SPAROntologies/co/validation.yml?label=tests)](https://github.com/SPAROntologies/co/actions/workflows/validation.yml)
+[![Documentation](https://img.shields.io/badge/docs-sparontologies.net-blue)](http://www.sparontologies.net/ontologies/co)
+[![IRI](https://img.shields.io/badge/IRI-purl.org%2Fco-blue)](http://purl.org/co)
+
 The **_Collections Ontology (CO)_** is an ontology for defining unordered collections (sets and bags) and ordered collections (or lists).
 
 **URL:** http://purl.org/co

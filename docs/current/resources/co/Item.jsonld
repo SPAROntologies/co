@@ -31,7 +31,7 @@
         "@id": "http://www.w3.org/2002/07/owl#Thing"
       },
       {
-        "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b23"
+        "@id": "_:n4754872ad96b43e0b57b1261319fa523b23"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -41,13 +41,13 @@
     ]
   },
   {
-    "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b23",
+    "@id": "_:n4754872ad96b43e0b57b1261319fa523b23",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b24"
+        "@id": "_:n4754872ad96b43e0b57b1261319fa523b24"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
@@ -57,7 +57,7 @@
     ]
   },
   {
-    "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b24",
+    "@id": "_:n4754872ad96b43e0b57b1261319fa523b24",
     "http://www.w3.org/2002/07/owl#inverseOf": [
       {
         "@id": "http://purl.org/co/item"

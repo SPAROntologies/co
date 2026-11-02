@@ -1,0 +1,20 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+co:index a owl:DatatypeProperty ;
+    rdfs:label "has index"@en ;
+    vann:example """
+    :author-2 a co:ListItem ;
+        co:index "2"^^xsd:positiveInteger .
+    """ ;
+    rdfs:comment "A number identifying the position, starting from 1, of a particular list item within a list."@en ;
+    rdfs:domain co:ListItem ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range xsd:positiveInteger ;
+    vs:term_status reg:statusStable .
+

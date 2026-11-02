@@ -1,0 +1,23 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:item a owl:ObjectProperty ;
+    rdfs:label "has item"@en ;
+    vann:example """
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 .
+    """ ;
+    rdfs:comment "The relation between a bag and every item of the bag"@en ;
+    rdfs:domain co:Bag ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range co:Item ;
+    owl:propertyChainAxiom ( co:item co:nextItem ) ;
+    vs:term_status reg:statusStable .
+
