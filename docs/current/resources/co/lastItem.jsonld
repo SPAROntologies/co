@@ -2,8 +2,8 @@
   {
     "@id": "http://purl.org/co/lastItem",
     "@type": [
-      "http://www.w3.org/2002/07/owl#FunctionalProperty",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
     ],
     "http://purl.org/vocab/vann/example": [
       {
@@ -34,7 +34,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b19"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b19"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
@@ -49,7 +49,7 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b19",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b19",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -60,14 +60,14 @@
             "@id": "http://purl.org/co/ListItem"
           },
           {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b20"
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b20"
           }
         ]
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b20",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b20",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],

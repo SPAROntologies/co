@@ -1,16 +1,16 @@
-_:n4754872ad96b43e0b57b1261319fa523b5 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<http://purl.org/co/Collection> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Collection ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    " .
-<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n4754872ad96b43e0b57b1261319fa523b5 .
-<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "A group of objects that can be considered as a whole."@en .
-_:n4754872ad96b43e0b57b1261319fa523b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:n4754872ad96b43e0b57b1261319fa523b6 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#Thing> .
-<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
-<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
-_:n4754872ad96b43e0b57b1261319fa523b5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/size> .
-_:n4754872ad96b43e0b57b1261319fa523b6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/element> .
-_:n4754872ad96b43e0b57b1261319fa523b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#label> "collection"@en .
 <http://purl.org/co/Collection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n4754872ad96b43e0b57b1261319fa523b6 .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nbaa9fe7bf1c24505bac4bb627246a6f5b5 .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "A group of objects that can be considered as a whole."@en .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b5 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:nbaa9fe7bf1c24505bac4bb627246a6f5b6 .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/element> .
+<http://purl.org/co/Collection> <http://purl.org/vocab/vann/example> "\n    :reading-list a co:Collection ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    " .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/size> .
 <http://purl.org/co/Collection> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
 <http://purl.org/co/Collection> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/co/Item> .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#label> "collection"@en .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b6 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#Thing> .

@@ -13,51 +13,71 @@
    xmlns:vann="http://purl.org/vocab/vann/"
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
-  <rdf:Description rdf:about="urn:swrl#li">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b44">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/previousItem">
+  <rdf:Description rdf:about="http://purl.org/co/lastItem">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has previous item</rdfs:label>
+    <rdfs:label xml:lang="en">has last item</rdfs:label>
     <vann:example>
-    :author-3 
-        co:previousItem :author-2 .
-    
-    :author-2 
-        co:previousItem :author-1 .
+    :authors a co:List ;
+        co:lastItem :author-3 .
     </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and the previous item in a list.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The relation between an item and the last item of the list.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/List"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/precededBy"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/nextItem"/>
+    <rdfs:range rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b19"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1].</skos:note>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b101">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#li"/>
-    <swrl:argument2 rdf:resource="urn:swrl#l"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b97">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b98"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b94">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:first rdf:resource="urn:swrl#r2"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b95"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/element">
+  <rdf:Description rdf:about="http://purl.org/co/itemContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has element</rdfs:label>
+    <rdfs:label xml:lang="en">has item content</rdfs:label>
     <vann:example>
-    :reading-list a co:Set ;
-        co:element :paper-1 , 
-                :paper-2 .
+    :citation-1 a co:Item ;
+        co:itemContent :paper-1 .
     </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a collection and the members of a collection</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/co/Collection"/>
+    <rdfs:comment xml:lang="en">The relation between an item and the actual resource to which the item refers.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/Item"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <owl:propertyChainAxiom rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b1"/>
+    <rdfs:range rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b3"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b75">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b76"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b77"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b57">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b54"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b58"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b104">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b105"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b45">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b46"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:allValuesFrom rdf:resource="http://purl.org/co/ListItem"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/item"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/co/List">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -87,47 +107,65 @@
     </vann:example>
     <rdfs:comment xml:lang="en">An ordered array of items, that can be present in multiple copies</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b7"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b8"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b9"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b7"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b8"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b9"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b23">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b24"/>
-    <owl:someValuesFrom rdf:resource="http://purl.org/co/Bag"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b1">
-    <rdf:first rdf:resource="http://purl.org/co/item"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#l">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/nextItem">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has next item</rdfs:label>
+  <rdf:Description rdf:about="http://purl.org/co/index">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">has index</rdfs:label>
     <vann:example>
-    :author-1 
-        co:nextItem :author-2 .
-
-    :author-2 
+    :author-2 a co:ListItem ;
+        co:index "2"^^xsd:positiveInteger .
+    </vann:example>
+    <rdfs:comment xml:lang="en">A number identifying the position, starting from 1, of a particular list item within a list.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/ListItem"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b41">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:arguments rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b42"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/ListItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">list item</rdfs:label>
+    <vann:example>
+    :author-2 a co:ListItem ;
+        co:itemOf :authors ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:previousItem :author-1 ;
         co:nextItem :author-3 .
     </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and the next item in a list.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An element belonging to a list.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/followedBy"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b25"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/co/Item"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1].</skos:note>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b70">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b69">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#l"/>
+    <swrl:argument2 rdf:resource="urn:swrl#i"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/lastItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b100">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b71"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b101"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b102"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b21">
+    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b22"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b99">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b100"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b104"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/co">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -353,110 +391,144 @@ Which entity is at a given position of a list?
     <schema:keywords xml:lang="en">scientometrics</schema:keywords>
     <schema:keywords xml:lang="en">semantic publishing</schema:keywords>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/firstItemOf">
+  <rdf:Description rdf:about="http://purl.org/co/lastItemOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is first item of</rdfs:label>
+    <rdfs:label xml:lang="en">is last item of</rdfs:label>
     <vann:example>
-    :author-1 a co:ListItem ;
-        co:firstItemOf :authors .
+    :author-3 a co:ListItem ;
+        co:lastItemOf :authors .
     </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an object and a list in which the object is first item.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The relation between an object and a list in which the object is last item.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/co/itemOf"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/firstItem"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/lastItem"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b11">
-    <rdf:first rdf:resource="http://purl.org/co/Bag"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b12"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b82">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#l"/>
+    <swrl:argument2 rdf:resource="urn:swrl#i"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/lastItem"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b91">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#li2"/>
-    <swrl:argument2 rdf:resource="urn:swrl#r2"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  <rdf:Description rdf:about="http://www.essepuntato.it/2009/10/error/hasError">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">has error</rdfs:label>
+    <rdfs:comment xml:lang="en">A description, usually in natural language, of which kind of error results from a resource.</rdfs:comment>
+    <rdfs:domain rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b4"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/error/"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/Item">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">item</rdfs:label>
+  <rdf:Description rdf:about="urn:swrl#li">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/followedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="en">is followed by</rdfs:label>
     <vann:example>
-    :citation-1 a co:Item ;
-        co:itemOf :citations ;
+    :author-1 
+        co:followedBy :author-2 , 
+                :author-3 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an item and the following item in a list.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/ListItem"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:range rdf:resource="http://purl.org/co/ListItem"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is followed by I[i+1], ... , I[n-1] and I[n].</skos:note>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b74">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b75"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b81"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b53">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b56"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/Bag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">bag</rdfs:label>
+    <vann:example>
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+
+    :citation-1 a co:Item ; 
+        co:itemContent :paper-1 .
+
+    :citation-2 a co:Item ; 
+        co:itemContent :paper-2 .
+
+    :citation-3 a co:Item ; 
         co:itemContent :paper-1 .
     </vann:example>
-    <rdfs:comment xml:lang="en">An element belonging to a bag.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Collection that can have a number of copies of each object</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b23"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/co/Collection"/>
+    <owl:disjointWith rdf:resource="http://purl.org/co/Set"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b100">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b92">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b101"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b102"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b93"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b95">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:first rdf:resource="urn:swrl#r1"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b96"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b15">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:hasValue>
-    <owl:onProperty rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/lastItem">
+  <rdf:Description rdf:about="http://purl.org/co/firstItem">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has last item</rdfs:label>
+    <rdfs:label xml:lang="en">has first item</rdfs:label>
     <vann:example>
     :authors a co:List ;
-        co:lastItem :author-3 .
+        co:firstItem :author-1 .
     </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and the last item of the list.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The relation between a list and the first item of the list.</rdfs:comment>
     <rdfs:domain rdf:resource="http://purl.org/co/List"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b19"/>
+    <rdfs:range rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b13"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/elementOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is element of</rdfs:label>
-    <vann:example>
-    :paper-1 
-        co:elementOf :reading-list .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an object and a collection which the object is a member of.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/element"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b42">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="urn:swrl#nextR"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b43"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b24">
-    <owl:inverseOf rdf:resource="http://purl.org/co/item"/>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b17">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b14"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b18"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/nextItem"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b34">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#list"/>
-    <swrl:argument2 rdf:resource="urn:swrl#r"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/size"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b12">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b10"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b93">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-    <swrl:arguments rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b94"/>
-    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b102">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b88">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b103"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b89"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b90"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b43">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="urn:swrl#r"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b44"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b78">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#i"/>
+    <swrl:argument2 rdf:resource="urn:swrl#value"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/element"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b50">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b51"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/co/Set">
@@ -471,6 +543,232 @@ Which entity is at a given position of a list?
     <rdfs:comment xml:lang="en">A collection that cannot contain duplicate elements.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/co/Collection"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b52">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b53"/>
+    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b60"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b72">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b73"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b81">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b82"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b102">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b103"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/nextItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has next item</rdfs:label>
+    <vann:example>
+    :author-1 
+        co:nextItem :author-2 .
+
+    :author-2 
+        co:nextItem :author-3 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an item and the next item in a list.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/followedBy"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1].</skos:note>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b48">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b49"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/elementOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is element of</rdfs:label>
+    <vann:example>
+    :paper-1 
+        co:elementOf :reading-list .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an object and a collection which the object is a member of.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/element"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b73">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#i"/>
+    <swrl:argument2 rdf:resource="urn:swrl#value"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/size"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b85">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#li1"/>
+    <swrl:argument2 rdf:resource="urn:swrl#l"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b36">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b37"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b38"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/item">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has item</rdfs:label>
+    <vann:example>
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between a bag and every item of the bag</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/Bag"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:range rdf:resource="http://purl.org/co/Item"/>
+    <owl:propertyChainAxiom rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b26"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/firstItemOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is first item of</rdfs:label>
+    <vann:example>
+    :author-1 a co:ListItem ;
+        co:firstItemOf :authors .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an object and a list in which the object is first item.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/itemOf"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/firstItem"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b30">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#list"/>
+    <swrl:argument2 rdf:resource="urn:swrl#last"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/lastItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b98">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#li1"/>
+    <swrl:argument2 rdf:resource="urn:swrl#li2"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/nextItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b39">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#current"/>
+    <swrl:argument2 rdf:resource="urn:swrl#r"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#li1">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b90">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b91"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b92"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b76">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#i"/>
+    <swrl:argument2 rdf:resource="urn:swrl#l"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/precededBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="en">is preceded by</rdfs:label>
+    <vann:example>
+    :author-3 
+        co:precededBy :author-2 , 
+                :author-1 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an item and the preceding item in a list.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/followedBy"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1].</skos:note>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#i">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b28">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b29"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b33"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/lastItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b46">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#next"/>
+    <swrl:argument2 rdf:resource="urn:swrl#nextR"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/element">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has element</rdfs:label>
+    <vann:example>
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between a collection and the members of a collection</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/Collection"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <owl:propertyChainAxiom rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b1"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b24"/>
+    <owl:someValuesFrom rdf:resource="http://purl.org/co/Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/itemContentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is item content of</rdfs:label>
+    <vann:example>
+    :paper-1 
+        co:itemContentOf :citation-1 , 
+                :citation-3 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an object and the item that refers to the object.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/itemContent"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#last">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:hasValue>
+    <owl:onProperty rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/itemOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is item of</rdfs:label>
+    <vann:example>
+    :citation-1 a co:Item ;
+        co:itemOf :citations .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between an item and a bag in which the item is member.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/item"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/co/size">
@@ -499,89 +797,71 @@ CO defines the size of a collection as the sum of the number of times entities t
 - the size of the bag [a, a, b, b, b, c] is five;
 - the size of the list (a, b, c, b, a, b, c, c) is seven.</skos:note>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b47">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b48"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b50"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b94">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="urn:swrl#r2"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b95"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b54">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://purl.org/co/firstItem"/>
-    <owl:someValuesFrom rdf:resource="http://purl.org/co/Item"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/item">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has item</rdfs:label>
-    <vann:example>
-    :citations a co:Bag ;
-        co:item :citation-1 , 
-                :citation-2 , 
-                :citation-3 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a bag and every item of the bag</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/co/Bag"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:resource="http://purl.org/co/Item"/>
-    <owl:propertyChainAxiom rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b26"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b86">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b77">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b87"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b88"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b78"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b79"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b21">
-    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b22"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b25">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/itemOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is item of</rdfs:label>
-    <vann:example>
-    :citation-1 a co:Item ;
-        co:itemOf :citations .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and a bag in which the item is member.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/item"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b72">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b84">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b73"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b85"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b86"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b65">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b66"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/itemContentOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is item content of</rdfs:label>
-    <vann:example>
-    :paper-1 
-        co:itemContentOf :citation-1 , 
-                :citation-3 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an object and the item that refers to the object.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/itemContent"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b11">
+    <rdf:first rdf:resource="http://purl.org/co/Bag"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b12"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b48">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b49"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b34">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#list"/>
+    <swrl:argument2 rdf:resource="urn:swrl#r"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/size"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b58">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b55"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b69">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#l"/>
-    <swrl:argument2 rdf:resource="urn:swrl#i"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/lastItem"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b47">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b48"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b50"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+    <owl:onProperty rdf:resource="http://www.essepuntato.it/2009/10/error/hasError"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/firstItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/Item">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">item</rdfs:label>
+    <vann:example>
+    :citation-1 a co:Item ;
+        co:itemOf :citations ;
+        co:itemContent :paper-1 .
+    </vann:example>
+    <rdfs:comment xml:lang="en">An element belonging to a bag.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b23"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/co/Collection">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -594,617 +874,337 @@ CO defines the size of a collection as the sum of the number of times entities t
     </vann:example>
     <rdfs:comment xml:lang="en">A group of objects that can be considered as a whole.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b5"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b6"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b5"/>
+    <rdfs:subClassOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b6"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:disjointWith rdf:resource="http://purl.org/co/Item"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b30">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#list"/>
-    <swrl:argument2 rdf:resource="urn:swrl#last"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/lastItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b36">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b68">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b37"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b38"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b69"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b70"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/Bag">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">bag</rdfs:label>
-    <vann:example>
-    :citations a co:Bag ;
-        co:item :citation-1 , 
-                :citation-2 , 
-                :citation-3 ;
-        co:size "3"^^xsd:nonNegativeInteger .
-
-    :citation-1 a co:Item ; 
-        co:itemContent :paper-1 .
-
-    :citation-2 a co:Item ; 
-        co:itemContent :paper-2 .
-
-    :citation-3 a co:Item ; 
-        co:itemContent :paper-1 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">Collection that can have a number of copies of each object</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/co/Collection"/>
-    <owl:disjointWith rdf:resource="http://purl.org/co/Set"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b59">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://purl.org/co/item"/>
-    <owl:someValuesFrom rdf:resource="http://purl.org/co/ListItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b99">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b100"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b104"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/precededBy">
+  <rdf:Description rdf:about="http://purl.org/co/previousItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdfs:label xml:lang="en">is preceded by</rdfs:label>
+    <rdfs:label xml:lang="en">has previous item</rdfs:label>
     <vann:example>
     :author-3 
-        co:precededBy :author-2 , 
-                :author-1 .
+        co:previousItem :author-2 .
+    
+    :author-2 
+        co:previousItem :author-1 .
     </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and the preceding item in a list.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The relation between an item and the previous item in a list.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/followedBy"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/precededBy"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/nextItem"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1].</skos:note>
+    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1].</skos:note>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b40">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b41"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b79">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b80"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b81">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b82"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b80">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#l"/>
-    <swrl:argument2 rdf:resource="urn:swrl#value"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/size"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b78">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#i"/>
-    <swrl:argument2 rdf:resource="urn:swrl#value"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/index">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">has index</rdfs:label>
-    <vann:example>
-    :author-2 a co:ListItem ;
-        co:index "2"^^xsd:positiveInteger .
-    </vann:example>
-    <rdfs:comment xml:lang="en">A number identifying the position, starting from 1, of a particular list item within a list.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/co/ListItem"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b37">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#current"/>
-    <swrl:argument2 rdf:resource="urn:swrl#next"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/nextItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#li2">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b10">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:allValuesFrom rdf:resource="http://purl.org/co/ListItem"/>
-    <owl:onProperty rdf:resource="http://purl.org/co/item"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b41">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-    <swrl:arguments rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b42"/>
-    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b92">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b93"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b39">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#current"/>
-    <swrl:argument2 rdf:resource="urn:swrl#r"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b87">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#li2"/>
-    <swrl:argument2 rdf:resource="urn:swrl#l"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b14">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/co/previousItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/itemContent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has item content</rdfs:label>
-    <vann:example>
-    :citation-1 a co:Item ;
-        co:itemContent :paper-1 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and the actual resource to which the item refers.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/co/Item"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b3"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/ListItem">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">list item</rdfs:label>
-    <vann:example>
-    :author-2 a co:ListItem ;
-        co:itemOf :authors ;
-        co:index "2"^^xsd:positiveInteger ;
-        co:itemContent :bob ;
-        co:previousItem :author-1 ;
-        co:nextItem :author-3 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">An element belonging to a list.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b25"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/co/Item"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b74">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b75"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b81"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/firstItem">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has first item</rdfs:label>
-    <vann:example>
-    :authors a co:List ;
-        co:firstItem :author-1 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a list and the first item of the list.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/co/List"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b13"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b83">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b84"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b97"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b75">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b76"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b77"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b63">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b64"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b57">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b54"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b58"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b6">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <owl:onProperty rdf:resource="http://purl.org/co/element"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b51">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#x"/>
-    <swrl:argument2>A list item cannot be preceded by itself</swrl:argument2>
-    <swrl:propertyPredicate rdf:resource="http://www.essepuntato.it/2009/10/error/hasError"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b35">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b36"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b45"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.essepuntato.it/2009/10/error/hasError">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en">has error</rdfs:label>
-    <rdfs:comment xml:lang="en">A description, usually in natural language, of which kind of error results from a resource.</rdfs:comment>
-    <rdfs:domain rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b4"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/error/"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b82">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#l"/>
-    <swrl:argument2 rdf:resource="urn:swrl#i"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/lastItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b32">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#last"/>
-    <swrl:argument2 rdf:resource="urn:swrl#r"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b77">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b78"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b79"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b103">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#li"/>
-    <swrl:argument2>1</swrl:argument2>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
-    <owl:onProperty rdf:resource="http://www.essepuntato.it/2009/10/error/hasError"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b97">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b98"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b46">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#next"/>
-    <swrl:argument2 rdf:resource="urn:swrl#nextR"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b52">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b53"/>
-    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b60"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b29">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b30"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b31"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b104">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b105"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/followedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdfs:label xml:lang="en">is followed by</rdfs:label>
-    <vann:example>
-    :author-1 
-        co:followedBy :author-2 , 
-                :author-3 .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an item and the following item in a list.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/co/ListItem"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:resource="http://purl.org/co/ListItem"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <skos:note xml:lang="en">Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is followed by I[i+1], ... , I[n-1] and I[n].</skos:note>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/co/lastItemOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is last item of</rdfs:label>
-    <vann:example>
-    :author-3 a co:ListItem ;
-        co:lastItemOf :authors .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between an object and a list in which the object is last item.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/itemOf"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/lastItem"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b9">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b11"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b8">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-    <owl:onProperty rdf:resource="http://purl.org/co/lastItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b62">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b63"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b65"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b98">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#li1"/>
-    <swrl:argument2 rdf:resource="urn:swrl#li2"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/nextItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b66">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#x"/>
-    <swrl:argument2>A list item cannot be followed by itself</swrl:argument2>
-    <swrl:propertyPredicate rdf:resource="http://www.essepuntato.it/2009/10/error/hasError"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b73">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#i"/>
-    <swrl:argument2 rdf:resource="urn:swrl#value"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b68">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b69"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b70"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b44">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b65">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b66"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b42">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:first rdf:resource="urn:swrl#nextR"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b43"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b20">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/co/nextItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b89">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b89">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
     <swrl:argument1 rdf:resource="urn:swrl#li1"/>
     <swrl:argument2 rdf:resource="urn:swrl#r1"/>
     <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b27">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b27">
     <rdf:first rdf:resource="http://purl.org/co/nextItem"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b88">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b89"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b90"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#nextR">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b19">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b21"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b13">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b16"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b45">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b46"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b50">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b51"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b22">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b20"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:complementOf rdf:resource="http://purl.org/co/Item"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b58">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b55"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b85">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#li1"/>
-    <swrl:argument2 rdf:resource="urn:swrl#l"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b71">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#l"/>
-    <swrl:argument2 rdf:resource="urn:swrl#value"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/size"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b33">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b34"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b38">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b39"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b40"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b7">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-    <owl:onProperty rdf:resource="http://purl.org/co/firstItem"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b76">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-    <swrl:argument1 rdf:resource="urn:swrl#i"/>
-    <swrl:argument2 rdf:resource="urn:swrl#l"/>
-    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b90">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b91"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b92"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b49">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b49">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
     <swrl:argument1 rdf:resource="urn:swrl#x"/>
     <swrl:argument2 rdf:resource="urn:swrl#x"/>
     <swrl:propertyPredicate rdf:resource="http://purl.org/co/precededBy"/>
   </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#r1">
+  <rdf:Description rdf:about="urn:swrl#li2">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#next">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b2">
-    <rdf:first rdf:resource="http://purl.org/co/itemContent"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#list">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b31">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b32"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b16">
-    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b17"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b61">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b59"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b56">
-    <rdf:first rdf:resource="http://purl.org/co/List"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b57"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b28">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b29"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b33"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#last">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b67">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-    <swrl:body rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b68"/>
-    <swrl:head rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b72"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b105">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b105">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
     <swrl:argument1 rdf:resource="urn:swrl#l"/>
     <swrl:argument2 rdf:resource="urn:swrl#li"/>
     <swrl:propertyPredicate rdf:resource="http://purl.org/co/firstItem"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b43">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:first rdf:resource="urn:swrl#r"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b44"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#current">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b5">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b14">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/co/size"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/previousItem"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b96">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b24">
+    <owl:inverseOf rdf:resource="http://purl.org/co/item"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b60">
-    <rdf:first rdf:resource="http://purl.org/co/List"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b61"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b26">
+    <rdf:first rdf:resource="http://purl.org/co/item"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b27"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b84">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b85"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b86"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b64">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b64">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
     <swrl:argument1 rdf:resource="urn:swrl#x"/>
     <swrl:argument2 rdf:resource="urn:swrl#x"/>
     <swrl:propertyPredicate rdf:resource="http://purl.org/co/followedBy"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b38">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b39"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b40"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b55">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://purl.org/co/lastItem"/>
-    <owl:someValuesFrom rdf:resource="http://purl.org/co/Item"/>
+  <rdf:Description rdf:about="urn:swrl#r1">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b53">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b56">
+    <rdf:first rdf:resource="http://purl.org/co/List"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b57"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b96">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b61">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b59"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b95">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="urn:swrl#r1"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b96"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b93">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:arguments rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b94"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b101">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#li"/>
+    <swrl:argument2 rdf:resource="urn:swrl#l"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b51">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#x"/>
+    <swrl:argument2>A list item cannot be preceded by itself</swrl:argument2>
+    <swrl:propertyPredicate rdf:resource="http://www.essepuntato.it/2009/10/error/hasError"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b35">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b36"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b45"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b67">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b68"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b72"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b40">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b41"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b70">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b71"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b87">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#li2"/>
+    <swrl:argument2 rdf:resource="urn:swrl#l"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/itemOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b3">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b56"/>
+    <owl:complementOf rdf:resource="http://purl.org/co/Item"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b86">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b87"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b88"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b71">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#l"/>
+    <swrl:argument2 rdf:resource="urn:swrl#value"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/size"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b79">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b80"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b32">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#last"/>
+    <swrl:argument2 rdf:resource="urn:swrl#r"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b62">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b63"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b65"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b1">
+    <rdf:first rdf:resource="http://purl.org/co/item"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#list">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b80">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#l"/>
+    <swrl:argument2 rdf:resource="urn:swrl#value"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/size"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b12">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b10"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b83">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <swrl:body rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b84"/>
+    <swrl:head rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b97"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
   <rdf:Description rdf:about="urn:swrl#r2">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b18">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b15"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b37">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#current"/>
+    <swrl:argument2 rdf:resource="urn:swrl#next"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/nextItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b63">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b64"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b26">
-    <rdf:first rdf:resource="http://purl.org/co/item"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b27"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#i">
+  <rdf:Description rdf:about="urn:swrl#nextR">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b31">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b32"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b22">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b20"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#r">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b21"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b91">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#li2"/>
+    <swrl:argument2 rdf:resource="urn:swrl#r2"/>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b103">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#li"/>
+    <swrl:argument2>1</swrl:argument2>
+    <swrl:propertyPredicate rdf:resource="http://purl.org/co/index"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#l">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b16">
+    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b17"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b29">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b30"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b31"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b54">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/firstItem"/>
+    <owl:someValuesFrom rdf:resource="http://purl.org/co/Item"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b60">
+    <rdf:first rdf:resource="http://purl.org/co/List"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b61"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b18">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b15"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="urn:swrl#x">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#li1">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b33">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b34"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b17">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b14"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b18"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b55">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/lastItem"/>
+    <owl:someValuesFrom rdf:resource="http://purl.org/co/Item"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b66">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:argument1 rdf:resource="urn:swrl#x"/>
+    <swrl:argument2>A list item cannot be followed by itself</swrl:argument2>
+    <swrl:propertyPredicate rdf:resource="http://www.essepuntato.it/2009/10/error/hasError"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#current">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#next">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b2">
+    <rdf:first rdf:resource="http://purl.org/co/itemContent"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b59">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/item"/>
+    <owl:someValuesFrom rdf:resource="http://purl.org/co/ListItem"/>
   </rdf:Description>
   <rdf:Description rdf:about="urn:swrl#value">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="urn:swrl#r">
-    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
 </rdf:RDF>

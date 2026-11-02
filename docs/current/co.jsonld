@@ -1,141 +1,86 @@
 [
   {
-    "@id": "http://purl.org/co/itemContent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#FunctionalProperty",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :citation-1 a co:Item ;\n        co:itemContent :paper-1 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an item and the actual resource to which the item refers."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/co/Item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has item content"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b3"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#complementOf": [
-      {
-        "@id": "http://purl.org/co/Item"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b74",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b35",
     "@type": [
       "http://www.w3.org/2003/11/swrl#Imp"
     ],
     "http://www.w3.org/2003/11/swrl#body": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b75"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b36"
       }
     ],
     "http://www.w3.org/2003/11/swrl#head": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b81"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b45"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b75",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b36",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b76"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b37"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b77"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b38"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b76",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b37",
     "@type": [
       "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
     ],
     "http://www.w3.org/2003/11/swrl#argument1": [
       {
-        "@id": "urn:swrl#i"
+        "@id": "urn:swrl#current"
       }
     ],
     "http://www.w3.org/2003/11/swrl#argument2": [
       {
-        "@id": "urn:swrl#l"
+        "@id": "urn:swrl#next"
       }
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
       {
-        "@id": "http://purl.org/co/itemOf"
+        "@id": "http://purl.org/co/nextItem"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b77",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b38",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b78"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b39"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b79"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b40"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b78",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b39",
     "@type": [
       "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
     ],
     "http://www.w3.org/2003/11/swrl#argument1": [
       {
-        "@id": "urn:swrl#i"
+        "@id": "urn:swrl#current"
       }
     ],
     "http://www.w3.org/2003/11/swrl#argument2": [
       {
-        "@id": "urn:swrl#value"
+        "@id": "urn:swrl#r"
       }
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
@@ -145,13 +90,13 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b79",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b40",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b80"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b41"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
@@ -161,498 +106,7 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b80",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#l"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#value"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/size"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b81",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b82"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b82",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#l"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#i"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/lastItem"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#li",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://www.essepuntato.it/2009/10/error/hasError",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A description, usually in natural language, of which kind of error results from a resource."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b4"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/spar/error/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has error"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b4",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#cardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "0"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.essepuntato.it/2009/10/error/hasError"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b99",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Imp"
-    ],
-    "http://www.w3.org/2003/11/swrl#body": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b100"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#head": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b104"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b100",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b101"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b102"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b101",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#li"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#l"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/itemOf"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b102",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b103"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b103",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#li"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b104",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b105"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b105",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#l"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#li"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/firstItem"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/Item",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :citation-1 a co:Item ;\n        co:itemOf :citations ;\n        co:itemContent :paper-1 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An element belonging to a bag."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b23"
-      },
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b23",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b24"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "http://purl.org/co/Bag"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b24",
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/co/item"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b83",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Imp"
-    ],
-    "http://www.w3.org/2003/11/swrl#body": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b84"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#head": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b97"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b84",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b85"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b86"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b85",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#li1"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#l"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/itemOf"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b86",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b87"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b88"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b87",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#li2"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#l"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/itemOf"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b88",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b89"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b90"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b89",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#li1"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#r1"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b90",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b91"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b92"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b91",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#li2"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#r2"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b92",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b93"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b93",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b41",
     "@type": [
       "http://www.w3.org/2003/11/swrl#BuiltinAtom"
     ],
@@ -660,10 +114,10 @@
       {
         "@list": [
           {
-            "@id": "urn:swrl#r2"
+            "@id": "urn:swrl#nextR"
           },
           {
-            "@id": "urn:swrl#r1"
+            "@id": "urn:swrl#r"
           },
           {
             "@type": "http://www.w3.org/2001/XMLSchema#integer",
@@ -679,13 +133,13 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b97",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b45",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b98"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b46"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
@@ -695,24 +149,85 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b98",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b46",
     "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
     ],
     "http://www.w3.org/2003/11/swrl#argument1": [
       {
-        "@id": "urn:swrl#li1"
+        "@id": "urn:swrl#next"
       }
     ],
     "http://www.w3.org/2003/11/swrl#argument2": [
       {
-        "@id": "urn:swrl#li2"
+        "@id": "urn:swrl#nextR"
       }
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
       {
-        "@id": "http://purl.org/co/nextItem"
+        "@id": "http://purl.org/co/index"
       }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/size",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The number of items belonging to a collection."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/co/Collection"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has size"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "\nCO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:\n- the size of the set {a, b, c} is three;\n- the size of the bag [a, a, b, b, b, c] is five;\n- the size of the list (a, b, c, b, a, b, c, c) is seven."
+      }
+    ]
+  },
+  {
+    "@id": "urn:swrl#li2",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
     ]
   },
   {
@@ -771,66 +286,189 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b67",
+    "@id": "urn:swrl#i",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "urn:swrl#x",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b83",
     "@type": [
       "http://www.w3.org/2003/11/swrl#Imp"
     ],
     "http://www.w3.org/2003/11/swrl#body": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b68"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b84"
       }
     ],
     "http://www.w3.org/2003/11/swrl#head": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b72"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b97"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b68",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b84",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b69"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b85"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b70"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b86"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b69",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b85",
     "@type": [
       "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
     ],
     "http://www.w3.org/2003/11/swrl#argument1": [
       {
-        "@id": "urn:swrl#l"
+        "@id": "urn:swrl#li1"
       }
     ],
     "http://www.w3.org/2003/11/swrl#argument2": [
       {
-        "@id": "urn:swrl#i"
+        "@id": "urn:swrl#l"
       }
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
       {
-        "@id": "http://purl.org/co/lastItem"
+        "@id": "http://purl.org/co/itemOf"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b70",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b86",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b71"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b87"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b88"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b87",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#li2"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#l"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/itemOf"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b88",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b89"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b90"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b89",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#li1"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#r1"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b90",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b91"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b92"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b91",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#li2"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#r2"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b92",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b93"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
@@ -840,7 +478,221 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b71",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b93",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#BuiltinAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#arguments": [
+      {
+        "@list": [
+          {
+            "@id": "urn:swrl#r2"
+          },
+          {
+            "@id": "urn:swrl#r1"
+          },
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 1
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#builtin": [
+      {
+        "@id": "http://www.w3.org/2003/11/swrlb#add"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b97",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b98"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b98",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#li1"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#li2"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/nextItem"
+      }
+    ]
+  },
+  {
+    "@id": "urn:swrl#next",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/Set",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A collection that cannot contain duplicate elements."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "set"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.org/co/Collection"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b74",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Imp"
+    ],
+    "http://www.w3.org/2003/11/swrl#body": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b75"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#head": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b81"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b75",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b76"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b77"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b76",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#i"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#l"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/itemOf"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b77",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b78"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b79"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b78",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#i"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#value"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b79",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b80"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b80",
     "@type": [
       "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
     ],
@@ -861,13 +713,13 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b72",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b81",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b73"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b82"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
@@ -877,397 +729,23 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b73",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#i"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#value"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#i",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/creator",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "urn:swrl#value",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/nextItem",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#FunctionalProperty",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :author-1 \n        co:nextItem :author-2 .\n\n    :author-2 \n        co:nextItem :author-3 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an item and the next item in a list."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has next item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/co/followedBy"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/Bag",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :citation-1 a co:Item ; \n        co:itemContent :paper-1 .\n\n    :citation-2 a co:Item ; \n        co:itemContent :paper-2 .\n\n    :citation-3 a co:Item ; \n        co:itemContent :paper-1 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Collection that can have a number of copies of each object"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "bag"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/co/Collection"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#disjointWith": [
-      {
-        "@id": "http://purl.org/co/Set"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#l",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/lastItemOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :author-3 a co:ListItem ;\n        co:lastItemOf :authors .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an object and a list in which the object is last item."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is last item of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/co/itemOf"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/co/lastItem"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/firstItemOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :author-1 a co:ListItem ;\n        co:firstItemOf :authors .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an object and a list in which the object is first item."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is first item of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/co/itemOf"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/co/firstItem"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b35",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Imp"
-    ],
-    "http://www.w3.org/2003/11/swrl#body": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b36"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#head": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b45"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b36",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b37"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b38"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b37",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b82",
     "@type": [
       "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
     ],
     "http://www.w3.org/2003/11/swrl#argument1": [
       {
-        "@id": "urn:swrl#current"
+        "@id": "urn:swrl#l"
       }
     ],
     "http://www.w3.org/2003/11/swrl#argument2": [
       {
-        "@id": "urn:swrl#next"
+        "@id": "urn:swrl#i"
       }
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
       {
-        "@id": "http://purl.org/co/nextItem"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b38",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b39"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b40"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b39",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#current"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#r"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b40",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b41"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b41",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#BuiltinAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#arguments": [
-      {
-        "@list": [
-          {
-            "@id": "urn:swrl#nextR"
-          },
-          {
-            "@id": "urn:swrl#r"
-          },
-          {
-            "@type": "http://www.w3.org/2001/XMLSchema#integer",
-            "@value": 1
-          }
-        ]
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#builtin": [
-      {
-        "@id": "http://www.w3.org/2003/11/swrlb#add"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b45",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b46"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b46",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#next"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#nextR"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
+        "@id": "http://purl.org/co/lastItem"
       }
     ]
   },
@@ -1319,6 +797,216 @@
         "@language": "en",
         "@value": "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the previous item of I[i] is I[i-1]."
       }
+    ]
+  },
+  {
+    "@id": "urn:swrl#last",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/itemContent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#FunctionalProperty",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :citation-1 a co:Item ;\n        co:itemContent :paper-1 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an item and the actual resource to which the item refers."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/co/Item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has item content"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b3"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#complementOf": [
+      {
+        "@id": "http://purl.org/co/Item"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/firstItemOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :author-1 a co:ListItem ;\n        co:firstItemOf :authors .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an object and a list in which the object is first item."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is first item of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/co/itemOf"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/co/firstItem"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/Collection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :reading-list a co:Collection ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A group of objects that can be considered as a whole."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "collection"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b5"
+      },
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b6"
+      },
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "http://purl.org/co/Item"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b5",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/size"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b6",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/element"
+      }
+    ]
+  },
+  {
+    "@id": "urn:swrl#l",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "urn:swrl#nextR",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "urn:swrl#list",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "urn:swrl#value",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
     ]
   },
   {
@@ -1518,713 +1206,6 @@
     ]
   },
   {
-    "@id": "urn:swrl#list",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b47",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Imp"
-    ],
-    "http://www.w3.org/2003/11/swrl#body": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b48"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#head": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b50"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b48",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b49"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b49",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#x"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#x"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/precededBy"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b50",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b51"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b51",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#x"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@value": "A list item cannot be preceded by itself"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://www.essepuntato.it/2009/10/error/hasError"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#r1",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/title",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/lastItem",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#FunctionalProperty",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an item and the last item of the list."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/co/List"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has last item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b19"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/co/item"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b19",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#intersectionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/ListItem"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b20"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b20",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#cardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "0"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/nextItem"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/element",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between a collection and the members of a collection"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/co/Collection"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has element"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#propertyChainAxiom": [
-      {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/item"
-          },
-          {
-            "@id": "http://purl.org/co/itemContent"
-          }
-        ]
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#r",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/publisher",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/language",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/List",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :authors a co:List ;\n        co:firstItem :author-1 ;\n        co:item :author-1 , \n                :author-2 , \n                :author-3 ;\n        co:lastItem :author-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :author-1 a co:ListItem ;\n        co:index \"1\"^^xsd:positiveInteger ;\n        co:itemContent :alice ;\n        co:nextItem :author-2 .\n\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:nextItem :author-3 .\n\n    :author-3 a co:ListItem ;\n        co:index \"3\"^^xsd:positiveInteger ;\n        co:itemContent :carol .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An ordered array of items, that can be present in multiple copies"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "list"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b7"
-      },
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b8"
-      },
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b9"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b7",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#maxCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/firstItem"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#maxCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/lastItem"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b9",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#intersectionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/Bag"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b10"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b10",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://purl.org/co/ListItem"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/item"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/description",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/Set",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A collection that cannot contain duplicate elements."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "set"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/co/Collection"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#li2",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/itemContentOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :paper-1 \n        co:itemContentOf :citation-1 , \n                :citation-3 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an object and the item that refers to the object."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is item content of"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/co/itemContent"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/Collection",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :reading-list a co:Collection ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A group of objects that can be considered as a whole."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "collection"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b5"
-      },
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b6"
-      },
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#disjointWith": [
-      {
-        "@id": "http://purl.org/co/Item"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b5",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#cardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/size"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b6",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/element"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#li1",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "urn:swrl#nextR",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/firstItem",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#FunctionalProperty",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :authors a co:List ;\n        co:firstItem :author-1 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between a list and the first item of the list."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/co/List"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has first item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b13"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/co/item"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b13",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#intersectionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/ListItem"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b14"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b15"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b14",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#cardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "0"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/previousItem"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b15",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#hasValue": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#positiveInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/size",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 ;\n        co:size \"2\"^^xsd:nonNegativeInteger .\n\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The number of items belonging to a collection."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/co/Collection"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has size"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "\nCO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:\n- the size of the set {a, b, c} is three;\n- the size of the bag [a, a, b, b, b, c] is five;\n- the size of the list (a, b, c, b, a, b, c, c) is seven."
-      }
-    ]
-  },
-  {
     "@id": "http://purl.org/co/elementOf",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -2263,66 +1244,35 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b28",
+    "@id": "urn:swrl#li1",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b47",
     "@type": [
       "http://www.w3.org/2003/11/swrl#Imp"
     ],
     "http://www.w3.org/2003/11/swrl#body": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b29"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b48"
       }
     ],
     "http://www.w3.org/2003/11/swrl#head": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b33"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b50"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b29",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b48",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b30"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b31"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b30",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#list"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#last"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/lastItem"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b31",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b32"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b49"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
@@ -2332,224 +1282,7 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b32",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#last"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#r"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b33",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b34"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b34",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
-    ],
-    "http://www.w3.org/2003/11/swrl#argument1": [
-      {
-        "@id": "urn:swrl#list"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#argument2": [
-      {
-        "@id": "urn:swrl#r"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
-      {
-        "@id": "http://purl.org/co/size"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/ListItem",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :author-2 a co:ListItem ;\n        co:itemOf :authors ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:previousItem :author-1 ;\n        co:nextItem :author-3 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An element belonging to a list."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "list item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b25"
-      },
-      {
-        "@id": "http://purl.org/co/Item"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b25",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#cardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/index"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#r2",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/format",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/precededBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/2002/07/owl#TransitiveProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :author-3 \n        co:precededBy :author-2 , \n                :author-1 .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The relation between an item and the preceding item in a list."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is preceded by"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/co/followedBy"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1]."
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#x",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "urn:swrl#last",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b62",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Imp"
-    ],
-    "http://www.w3.org/2003/11/swrl#body": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b63"
-      }
-    ],
-    "http://www.w3.org/2003/11/swrl#head": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b65"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b63",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#AtomList"
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
-      {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b64"
-      }
-    ],
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
-      {
-        "@list": []
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b64",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b49",
     "@type": [
       "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
     ],
@@ -2565,18 +1298,18 @@
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
       {
-        "@id": "http://purl.org/co/followedBy"
+        "@id": "http://purl.org/co/precededBy"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b65",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b50",
     "@type": [
       "http://www.w3.org/2003/11/swrl#AtomList"
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b66"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b51"
       }
     ],
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
@@ -2586,7 +1319,7 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b66",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b51",
     "@type": [
       "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
     ],
@@ -2597,7 +1330,7 @@
     ],
     "http://www.w3.org/2003/11/swrl#argument2": [
       {
-        "@value": "A list item cannot be followed by itself"
+        "@value": "A list item cannot be preceded by itself"
       }
     ],
     "http://www.w3.org/2003/11/swrl#propertyPredicate": [
@@ -2607,187 +1340,129 @@
     ]
   },
   {
-    "@id": "http://purl.org/co/itemOf",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b99",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2003/11/swrl#Imp"
     ],
-    "http://purl.org/vocab/vann/example": [
+    "http://www.w3.org/2003/11/swrl#body": [
       {
-        "@value": "\n    :citation-1 a co:Item ;\n        co:itemOf :citations .\n    "
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b100"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2003/11/swrl#head": [
       {
-        "@language": "en",
-        "@value": "The relation between an item and a bag in which the item is member."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is item of"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/co/item"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b104"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b52",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b100",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2003/11/swrl#AtomList"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b53"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b101"
       }
     ],
-    "http://www.w3.org/2002/07/owl#intersectionOf": [
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
       {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/List"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b59"
-          }
-        ]
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b102"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b53",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b101",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
     ],
-    "http://www.w3.org/2002/07/owl#intersectionOf": [
+    "http://www.w3.org/2003/11/swrl#argument1": [
       {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/List"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b54"
-          },
-          {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b55"
-          }
-        ]
+        "@id": "urn:swrl#li"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#l"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/itemOf"
       }
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b54",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b102",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
+      "http://www.w3.org/2003/11/swrl#AtomList"
     ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b103"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b103",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#li"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b104",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b105"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b105",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#l"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#li"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
       {
         "@id": "http://purl.org/co/firstItem"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "http://purl.org/co/Item"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b55",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/lastItem"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "http://purl.org/co/Item"
-      }
-    ]
-  },
-  {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b59",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/item"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "http://purl.org/co/ListItem"
-      }
-    ]
-  },
-  {
-    "@id": "urn:swrl#current",
-    "@type": [
-      "http://www.w3.org/2003/11/swrl#Variable"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2002/07/owl#Thing",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://purl.org/co/index",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://purl.org/vocab/vann/example": [
-      {
-        "@value": "\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger .\n    "
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A number identifying the position, starting from 1, of a particular list item within a list."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/co/ListItem"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://purl.org/co/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has index"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#positiveInteger"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-        "@id": "http://purl.org/linked-data/registry#statusStable"
       }
     ]
   },
@@ -2842,15 +1517,1340 @@
     ]
   },
   {
-    "@id": "urn:swrl#next",
+    "@id": "http://purl.org/dc/elements/1.1/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/publisher",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/lastItemOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :author-3 a co:ListItem ;\n        co:lastItemOf :authors .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an object and a list in which the object is last item."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is last item of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/co/itemOf"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/co/lastItem"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.essepuntato.it/2009/10/error/hasError",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A description, usually in natural language, of which kind of error results from a resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b4"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/error/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has error"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "0"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.essepuntato.it/2009/10/error/hasError"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/itemContentOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :paper-1 \n        co:itemContentOf :citation-1 , \n                :citation-3 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an object and the item that refers to the object."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is item content of"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/co/itemContent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b67",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Imp"
+    ],
+    "http://www.w3.org/2003/11/swrl#body": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b68"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#head": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b72"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b68",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b69"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b70"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b69",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#l"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#i"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/lastItem"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b70",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b71"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b71",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#l"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#value"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/size"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b72",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b73"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b73",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#i"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#value"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "urn:swrl#r1",
     "@type": [
       "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/Item",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :citation-1 a co:Item ;\n        co:itemOf :citations ;\n        co:itemContent :paper-1 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An element belonging to a bag."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b23"
+      },
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b23",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b24"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "http://purl.org/co/Bag"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b24",
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/firstItem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#FunctionalProperty",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :authors a co:List ;\n        co:firstItem :author-1 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between a list and the first item of the list."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/co/List"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has first item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b13"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b13",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://purl.org/co/ListItem"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b14"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b14",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "0"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/previousItem"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b15",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#hasValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#positiveInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/format",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b28",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Imp"
+    ],
+    "http://www.w3.org/2003/11/swrl#body": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b29"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#head": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b33"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b29",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b30"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b31"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b30",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#list"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#last"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/lastItem"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b31",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b32"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b32",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#last"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#r"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b33",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b34"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b34",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#list"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#r"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/size"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/index",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A number identifying the position, starting from 1, of a particular list item within a list."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/co/ListItem"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has index"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/itemOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :citation-1 a co:Item ;\n        co:itemOf :citations .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an item and a bag in which the item is member."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is item of"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/ListItem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :author-2 a co:ListItem ;\n        co:itemOf :authors ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:previousItem :author-1 ;\n        co:nextItem :author-3 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An element belonging to a list."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "list item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b25"
+      },
+      {
+        "@id": "http://purl.org/co/Item"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b25",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/index"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/List",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :authors a co:List ;\n        co:firstItem :author-1 ;\n        co:item :author-1 , \n                :author-2 , \n                :author-3 ;\n        co:lastItem :author-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :author-1 a co:ListItem ;\n        co:index \"1\"^^xsd:positiveInteger ;\n        co:itemContent :alice ;\n        co:nextItem :author-2 .\n\n    :author-2 a co:ListItem ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:nextItem :author-3 .\n\n    :author-3 a co:ListItem ;\n        co:index \"3\"^^xsd:positiveInteger ;\n        co:itemContent :carol .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An ordered array of items, that can be present in multiple copies"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "list"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b7"
+      },
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b8"
+      },
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b9"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#maxCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/firstItem"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#maxCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/lastItem"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b9",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://purl.org/co/Bag"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b10",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://purl.org/co/ListItem"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b52",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b53"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://purl.org/co/List"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b59"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b53",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://purl.org/co/List"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b54"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b55"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b54",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/firstItem"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "http://purl.org/co/Item"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b55",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/lastItem"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "http://purl.org/co/Item"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b59",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "http://purl.org/co/ListItem"
+      }
     ]
   },
   {
     "@id": "http://purl.org/dc/elements/1.1/date",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b62",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Imp"
+    ],
+    "http://www.w3.org/2003/11/swrl#body": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b63"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#head": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b65"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b63",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b64"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b64",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#x"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@id": "urn:swrl#x"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://purl.org/co/followedBy"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b65",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#AtomList"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#first": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b66"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest": [
+      {
+        "@list": []
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b66",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+    ],
+    "http://www.w3.org/2003/11/swrl#argument1": [
+      {
+        "@id": "urn:swrl#x"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#argument2": [
+      {
+        "@value": "A list item cannot be followed by itself"
+      }
+    ],
+    "http://www.w3.org/2003/11/swrl#propertyPredicate": [
+      {
+        "@id": "http://www.essepuntato.it/2009/10/error/hasError"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/language",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "urn:swrl#current",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "urn:swrl#li",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "urn:swrl#r2",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/nextItem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#FunctionalProperty",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :author-1 \n        co:nextItem :author-2 .\n\n    :author-2 \n        co:nextItem :author-3 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an item and the next item in a list."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has next item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/co/followedBy"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."
+      }
+    ]
+  },
+  {
+    "@id": "urn:swrl#r",
+    "@type": [
+      "http://www.w3.org/2003/11/swrl#Variable"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/precededBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#TransitiveProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :author-3 \n        co:precededBy :author-2 , \n                :author-1 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an item and the preceding item in a list."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is preceded by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/co/followedBy"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1]."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/element",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :reading-list a co:Set ;\n        co:element :paper-1 , \n                :paper-2 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between a collection and the members of a collection"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/co/Collection"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has element"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#propertyChainAxiom": [
+      {
+        "@list": [
+          {
+            "@id": "http://purl.org/co/item"
+          },
+          {
+            "@id": "http://purl.org/co/itemContent"
+          }
+        ]
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/Bag",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 ;\n        co:size \"3\"^^xsd:nonNegativeInteger .\n\n    :citation-1 a co:Item ; \n        co:itemContent :paper-1 .\n\n    :citation-2 a co:Item ; \n        co:itemContent :paper-2 .\n\n    :citation-3 a co:Item ; \n        co:itemContent :paper-1 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Collection that can have a number of copies of each object"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "bag"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.org/co/Collection"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "http://purl.org/co/Set"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2002/07/owl#Thing",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://purl.org/co/lastItem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#FunctionalProperty",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between an item and the last item of the list."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/co/List"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/co/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has last item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b19"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b19",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://purl.org/co/ListItem"
+          },
+          {
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b20",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "0"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/nextItem"
+      }
     ]
   }
 ]

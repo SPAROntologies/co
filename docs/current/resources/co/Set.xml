@@ -6,17 +6,17 @@
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
   <rdf:Description rdf:about="http://purl.org/co/Set">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">set</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:comment xml:lang="en">A collection that cannot contain duplicate elements.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://purl.org/co/Collection"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <vann:example>
     :reading-list a co:Set ;
         co:element :paper-1 , 
                 :paper-2 ;
         co:size "2"^^xsd:nonNegativeInteger .
     </vann:example>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
   </rdf:Description>
 </rdf:RDF>
