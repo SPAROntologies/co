@@ -1,0 +1,22 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+co:Item a owl:Class ;
+    rdfs:label "item"@en ;
+    vann:example """
+    :citation-1 a co:Item ;
+        co:itemOf :citations ;
+        co:itemContent :paper-1 .
+    """ ;
+    rdfs:comment "An element belonging to a bag."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty [ owl:inverseOf co:item ] ;
+            owl:someValuesFrom co:Bag ],
+        owl:Thing ;
+    vs:term_status reg:statusStable .
+

@@ -1,0 +1,11 @@
+<http://purl.org/co/ListItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
+_:n4754872ad96b43e0b57b1261319fa523b25 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/index> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/co/Item> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n4754872ad96b43e0b57b1261319fa523b25 .
+<http://purl.org/co/ListItem> <http://purl.org/vocab/vann/example> "\n    :author-2 a co:ListItem ;\n        co:itemOf :authors ;\n        co:index \"2\"^^xsd:positiveInteger ;\n        co:itemContent :bob ;\n        co:previousItem :author-1 ;\n        co:nextItem :author-3 .\n    " .
+_:n4754872ad96b43e0b57b1261319fa523b25 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#label> "list item"@en .
+<http://purl.org/co/ListItem> <http://www.w3.org/2000/01/rdf-schema#comment> "An element belonging to a list."@en .
+_:n4754872ad96b43e0b57b1261319fa523b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .

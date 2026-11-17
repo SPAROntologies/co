@@ -1,0 +1,34 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+co:size a owl:DatatypeProperty ;
+    rdfs:label "has size"@en ;
+    vann:example """
+    :reading-list a co:Set ;
+        co:element :paper-1 , 
+                :paper-2 ;
+        co:size "2"^^xsd:nonNegativeInteger .
+
+    :citations a co:Bag ;
+        co:item :citation-1 , 
+                :citation-2 , 
+                :citation-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+    """ ;
+    rdfs:comment "The number of items belonging to a collection."@en ;
+    rdfs:domain co:Collection ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range xsd:nonNegativeInteger ;
+    vs:term_status reg:statusStable ;
+    skos:note """
+CO defines the size of a collection as the sum of the number of times entities that are part of the collection appear in it. This means that co:size considers how much each entity is involved by a particular collection, i.e.:
+- the size of the set {a, b, c} is three;
+- the size of the bag [a, a, b, b, b, c] is five;
+- the size of the list (a, b, c, b, a, b, c, c) is seven."""@en .
+

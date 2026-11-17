@@ -1,0 +1,48 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+co:List a owl:Class ;
+    rdfs:label "list"@en ;
+    vann:example """
+    :authors a co:List ;
+        co:firstItem :author-1 ;
+        co:item :author-1 , 
+                :author-2 , 
+                :author-3 ;
+        co:lastItem :author-3 ;
+        co:size "3"^^xsd:nonNegativeInteger .
+
+    :author-1 a co:ListItem ;
+        co:index "1"^^xsd:positiveInteger ;
+        co:itemContent :alice ;
+        co:nextItem :author-2 .
+
+    :author-2 a co:ListItem ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:nextItem :author-3 .
+
+    :author-3 a co:ListItem ;
+        co:index "3"^^xsd:positiveInteger ;
+        co:itemContent :carol .
+    """ ;
+    rdfs:comment "An ordered array of items, that can be present in multiple copies"@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:firstItem ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:lastItem ],
+        [ a owl:Class ;
+            owl:intersectionOf ( co:Bag [ a owl:Restriction ;
+                        owl:allValuesFrom co:ListItem ;
+                        owl:onProperty co:item ] ) ] ;
+    vs:term_status reg:statusStable .
+

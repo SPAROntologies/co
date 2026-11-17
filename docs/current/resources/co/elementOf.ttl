@@ -11,7 +11,7 @@ co:elementOf a owl:ObjectProperty ;
     :paper-1 
         co:elementOf :reading-list .
     """ ;
-    rdfs:comment "The relation between an object and a collection in which the object is member."@en ;
+    rdfs:comment "The relation between an object and a collection which the object is a member of."@en ;
     rdfs:isDefinedBy co: ;
     owl:inverseOf co:element ;
     vs:term_status reg:statusStable .

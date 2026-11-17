@@ -1,0 +1,26 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+co:ListItem a owl:Class ;
+    rdfs:label "list item"@en ;
+    vann:example """
+    :author-2 a co:ListItem ;
+        co:itemOf :authors ;
+        co:index "2"^^xsd:positiveInteger ;
+        co:itemContent :bob ;
+        co:previousItem :author-1 ;
+        co:nextItem :author-3 .
+    """ ;
+    rdfs:comment "An element belonging to a list."@en ;
+    rdfs:isDefinedBy co: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty co:index ],
+        co:Item ;
+    vs:term_status reg:statusStable .
+

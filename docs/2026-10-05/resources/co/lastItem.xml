@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b22">
+    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b20"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b21">
+    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
+    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/co/lastItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <vann:example>
+    :authors a co:List ;
+        co:lastItem :author-3 .
+    </vann:example>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
+    <rdfs:range rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b19"/>
+    <rdfs:comment xml:lang="en">The relation between an item and the last item of the list.</rdfs:comment>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:label xml:lang="en">has last item</rdfs:label>
+    <rdfs:domain rdf:resource="http://purl.org/co/List"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/nextItem"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b21"/>
+  </rdf:Description>
+</rdf:RDF>

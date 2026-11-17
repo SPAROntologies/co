@@ -1,0 +1,28 @@
+@prefix co: <http://purl.org/co/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+co:firstItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has first item"@en ;
+    vann:example """
+    :authors a co:List ;
+        co:firstItem :author-1 .
+    """ ;
+    rdfs:comment "The relation between a list and the first item of the list."@en ;
+    rdfs:domain co:List ;
+    rdfs:isDefinedBy co: ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( co:ListItem [ a owl:Restriction ;
+                        owl:cardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onProperty co:previousItem ] [ a owl:Restriction ;
+                        owl:hasValue "1"^^xsd:positiveInteger ;
+                        owl:onProperty co:index ] ) ] ;
+    rdfs:subPropertyOf co:item ;
+    vs:term_status reg:statusStable .
+

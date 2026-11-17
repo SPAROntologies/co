@@ -28,13 +28,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b7"
+        "@id": "_:n4754872ad96b43e0b57b1261319fa523b9"
       },
       {
-        "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b12"
+        "@id": "_:n4754872ad96b43e0b57b1261319fa523b7"
       },
       {
-        "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b8"
+        "@id": "_:n4754872ad96b43e0b57b1261319fa523b8"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -44,24 +44,41 @@
     ]
   },
   {
-    "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b7",
+    "@id": "_:n4754872ad96b43e0b57b1261319fa523b9",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2002/07/owl#maxCardinality": [
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
       {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/lastItem"
+        "@list": [
+          {
+            "@id": "http://purl.org/co/Bag"
+          },
+          {
+            "@id": "_:n4754872ad96b43e0b57b1261319fa523b10"
+          }
+        ]
       }
     ]
   },
   {
-    "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b12",
+    "@id": "_:n4754872ad96b43e0b57b1261319fa523b10",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://purl.org/co/ListItem"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/item"
+      }
+    ]
+  },
+  {
+    "@id": "_:n4754872ad96b43e0b57b1261319fa523b7",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -78,36 +95,19 @@
     ]
   },
   {
-    "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#intersectionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://purl.org/co/Bag"
-          },
-          {
-            "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b9"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:nabc9bd0c26da48e5a90b3891a64505e6b9",
+    "@id": "_:n4754872ad96b43e0b57b1261319fa523b8",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+    "http://www.w3.org/2002/07/owl#maxCardinality": [
       {
-        "@id": "http://purl.org/co/ListItem"
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://purl.org/co/item"
+        "@id": "http://purl.org/co/lastItem"
       }
     ]
   }
