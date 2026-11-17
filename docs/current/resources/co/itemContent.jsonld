@@ -23,7 +23,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/co/"
+        "@id": "http://purl.org/co"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -34,7 +34,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b3"
+        "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb3"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b3",
+    "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],

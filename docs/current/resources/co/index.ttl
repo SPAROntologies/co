@@ -14,7 +14,7 @@ co:index a owl:DatatypeProperty ;
     """ ;
     rdfs:comment "A number identifying the position, starting from 1, of a particular list item within a list."@en ;
     rdfs:domain co:ListItem ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:range xsd:positiveInteger ;
     vs:term_status reg:statusStable .
 

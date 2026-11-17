@@ -16,7 +16,7 @@ co:firstItem a owl:FunctionalProperty,
     """ ;
     rdfs:comment "The relation between a list and the first item of the list."@en ;
     rdfs:domain co:List ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:range [ a owl:Class ;
             owl:intersectionOf ( co:ListItem [ a owl:Restriction ;
                         owl:cardinality "0"^^xsd:nonNegativeInteger ;

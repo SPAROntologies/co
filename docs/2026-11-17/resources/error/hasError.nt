@@ -1,0 +1,10 @@
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#domain> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb4 .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#label> "has error"@en .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb4 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/spar/error/> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.essepuntato.it/2009/10/error/hasError> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://www.essepuntato.it/2009/10/error/hasError> <http://www.w3.org/2000/01/rdf-schema#comment> "A description, usually in natural language, of which kind of error results from a resource."@en .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .

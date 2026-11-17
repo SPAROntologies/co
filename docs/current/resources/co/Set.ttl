@@ -14,7 +14,7 @@ co:Set a owl:Class ;
         co:size "2"^^xsd:nonNegativeInteger .
     """ ;
     rdfs:comment "A collection that cannot contain duplicate elements."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subClassOf co:Collection ;
     vs:term_status reg:statusStable .
 

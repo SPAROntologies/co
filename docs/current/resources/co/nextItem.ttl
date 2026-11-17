@@ -17,7 +17,7 @@ co:nextItem a owl:FunctionalProperty,
         co:nextItem :author-3 .
     """ ;
     rdfs:comment "The relation between an item and the next item in a list."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subPropertyOf co:followedBy ;
     vs:term_status reg:statusStable ;
     skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the next item of I[i] is I[i+1]."@en .

@@ -13,7 +13,7 @@ co:itemContentOf a owl:ObjectProperty ;
                 :citation-3 .
     """ ;
     rdfs:comment "The relation between an object and the item that refers to the object."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     owl:inverseOf co:itemContent ;
     vs:term_status reg:statusStable .
 

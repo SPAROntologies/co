@@ -16,7 +16,7 @@ co:followedBy a owl:ObjectProperty,
     """ ;
     rdfs:comment "The relation between an item and the following item in a list."@en ;
     rdfs:domain co:ListItem ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:range co:ListItem ;
     vs:term_status reg:statusStable ;
     skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is followed by I[i+1], ... , I[n-1] and I[n]."@en .

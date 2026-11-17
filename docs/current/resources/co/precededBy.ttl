@@ -15,7 +15,7 @@ co:precededBy a owl:ObjectProperty,
                 :author-1 .
     """ ;
     rdfs:comment "The relation between an item and the preceding item in a list."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     owl:inverseOf co:followedBy ;
     vs:term_status reg:statusStable ;
     skos:note "Given the list (I[1], I[2], ... , I[i-1], I[i], I[i+1], ... , I[n-1], I[n]), the item I[i] is preceded by I[i-1], ... , I[2] and I[1]."@en .

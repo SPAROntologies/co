@@ -12,7 +12,7 @@ co:lastItemOf a owl:ObjectProperty ;
         co:lastItemOf :authors .
     """ ;
     rdfs:comment "The relation between an object and a list in which the object is last item."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subPropertyOf co:itemOf ;
     owl:inverseOf co:lastItem ;
     vs:term_status reg:statusStable .

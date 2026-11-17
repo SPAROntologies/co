@@ -17,7 +17,7 @@ co:previousItem a owl:FunctionalProperty,
         co:previousItem :author-1 .
     """ ;
     rdfs:comment "The relation between an item and the previous item in a list."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subPropertyOf co:precededBy ;
     owl:inverseOf co:nextItem ;
     vs:term_status reg:statusStable ;

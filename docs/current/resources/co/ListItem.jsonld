@@ -17,7 +17,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/co/"
+        "@id": "http://purl.org/co"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -28,7 +28,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b25"
+        "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb25"
       },
       {
         "@id": "http://purl.org/co/Item"
@@ -41,7 +41,7 @@
     ]
   },
   {
-    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b25",
+    "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb25",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],

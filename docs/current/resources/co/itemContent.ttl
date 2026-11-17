@@ -14,7 +14,7 @@ co:itemContent a owl:FunctionalProperty,
     """ ;
     rdfs:comment "The relation between an item and the actual resource to which the item refers."@en ;
     rdfs:domain co:Item ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:range [ a owl:Class ;
             owl:complementOf co:Item ] ;
     vs:term_status reg:statusStable .

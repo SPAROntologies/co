@@ -1,0 +1,13 @@
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/co/Item> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a bag and every item of the bag"@en .
+<http://purl.org/co/item> <http://purl.org/vocab/vann/example> "\n    :citations a co:Bag ;\n        co:item :citation-1 , \n                :citation-2 , \n                :citation-3 .\n    " .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb27 .
+<http://purl.org/co/item> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb26 .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/item> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/Bag> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co> .
+<http://purl.org/co/item> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/item> <http://www.w3.org/2000/01/rdf-schema#label> "has item"@en .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/nextItem> .
+<http://purl.org/co/item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .

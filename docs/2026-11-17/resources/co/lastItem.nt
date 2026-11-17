@@ -1,0 +1,19 @@
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/item> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb20 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/List> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb20 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/co/lastItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    " .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb22 .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb20 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/nextItem> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#range> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb19 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the last item of the list."@en .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#label> "has last item"@en .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
+_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb19 <http://www.w3.org/2002/07/owl#intersectionOf> _:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb21 .

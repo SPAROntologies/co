@@ -15,7 +15,7 @@ co:element a owl:ObjectProperty ;
     """ ;
     rdfs:comment "The relation between a collection and the members of a collection"@en ;
     rdfs:domain co:Collection ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     owl:propertyChainAxiom ( co:item co:itemContent ) ;
     vs:term_status reg:statusStable .
 

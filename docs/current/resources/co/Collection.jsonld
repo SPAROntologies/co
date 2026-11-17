@@ -17,7 +17,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/co/"
+        "@id": "http://purl.org/co"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -28,13 +28,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b5"
-      },
-      {
-        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b6"
+        "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb6"
       },
       {
         "@id": "http://www.w3.org/2002/07/owl#Thing"
+      },
+      {
+        "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb5"
       }
     ],
     "http://www.w3.org/2002/07/owl#disjointWith": [
@@ -49,7 +49,23 @@
     ]
   },
   {
-    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b5",
+    "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb6",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/co/element"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5fbb50d2f69b4927a5fbac8ec4ca6b3cb5",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -62,22 +78,6 @@
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
         "@id": "http://purl.org/co/size"
-      }
-    ]
-  },
-  {
-    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b6",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/co/element"
       }
     ]
   }
