@@ -24,7 +24,7 @@ co:Bag a owl:Class ;
         co:itemContent :paper-1 .
     """ ;
     rdfs:comment "Collection that can have a number of copies of each object"@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subClassOf co:Collection ;
     owl:disjointWith co:Set ;
     vs:term_status reg:statusStable .

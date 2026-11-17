@@ -23,7 +23,7 @@ co:size a owl:DatatypeProperty ;
     """ ;
     rdfs:comment "The number of items belonging to a collection."@en ;
     rdfs:domain co:Collection ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:range xsd:nonNegativeInteger ;
     vs:term_status reg:statusStable ;
     skos:note """

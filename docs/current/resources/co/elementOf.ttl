@@ -12,7 +12,7 @@ co:elementOf a owl:ObjectProperty ;
         co:elementOf :reading-list .
     """ ;
     rdfs:comment "The relation between an object and a collection which the object is a member of."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     owl:inverseOf co:element ;
     vs:term_status reg:statusStable .
 

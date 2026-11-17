@@ -12,7 +12,7 @@ co:firstItemOf a owl:ObjectProperty ;
         co:firstItemOf :authors .
     """ ;
     rdfs:comment "The relation between an object and a list in which the object is first item."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subPropertyOf co:itemOf ;
     owl:inverseOf co:firstItem ;
     vs:term_status reg:statusStable .

@@ -7,35 +7,35 @@
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
   <rdf:Description rdf:about="http://purl.org/co/lastItem">
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b19"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:label xml:lang="en">has last item</rdfs:label>
     <rdfs:domain rdf:resource="http://purl.org/co/List"/>
-    <rdfs:comment xml:lang="en">The relation between an item and the last item of the list.</rdfs:comment>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <vann:example>
     :authors a co:List ;
         co:lastItem :author-3 .
     </vann:example>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb19"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co"/>
+    <rdfs:comment xml:lang="en">The relation between an item and the last item of the list.</rdfs:comment>
+    <rdfs:label xml:lang="en">has last item</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b20">
+  <rdf:Description rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb20">
     <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
     <owl:onProperty rdf:resource="http://purl.org/co/nextItem"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b21">
-    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b22"/>
+  <rdf:Description rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb22">
+    <rdf:first rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb20"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb21">
+    <rdf:rest rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb22"/>
     <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b19">
-    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b21"/>
+  <rdf:Description rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb19">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b22">
-    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b20"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <owl:intersectionOf rdf:nodeID="n5fbb50d2f69b4927a5fbac8ec4ca6b3cb21"/>
   </rdf:Description>
 </rdf:RDF>

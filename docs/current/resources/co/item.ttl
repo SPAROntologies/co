@@ -16,7 +16,7 @@ co:item a owl:ObjectProperty ;
     """ ;
     rdfs:comment "The relation between a bag and every item of the bag"@en ;
     rdfs:domain co:Bag ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:range co:Item ;
     owl:propertyChainAxiom ( co:item co:nextItem ) ;
     vs:term_status reg:statusStable .

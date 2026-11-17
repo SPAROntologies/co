@@ -13,7 +13,7 @@ co:Item a owl:Class ;
         co:itemContent :paper-1 .
     """ ;
     rdfs:comment "An element belonging to a bag."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty [ owl:inverseOf co:item ] ;
             owl:someValuesFrom co:Bag ],

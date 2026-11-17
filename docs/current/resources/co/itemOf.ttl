@@ -12,7 +12,7 @@ co:itemOf a owl:ObjectProperty ;
         co:itemOf :citations .
     """ ;
     rdfs:comment "The relation between an item and a bag in which the item is member."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     owl:inverseOf co:item ;
     vs:term_status reg:statusStable .
 

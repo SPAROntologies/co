@@ -17,7 +17,7 @@ co:ListItem a owl:Class ;
         co:nextItem :author-3 .
     """ ;
     rdfs:comment "An element belonging to a list."@en ;
-    rdfs:isDefinedBy co: ;
+    rdfs:isDefinedBy <http://purl.org/co> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty co:index ],
