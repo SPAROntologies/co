@@ -1,19 +1,19 @@
-_:n4754872ad96b43e0b57b1261319fa523b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n4754872ad96b43e0b57b1261319fa523b20 .
-_:n4754872ad96b43e0b57b1261319fa523b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
-<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
-_:n4754872ad96b43e0b57b1261319fa523b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co/> .
-_:n4754872ad96b43e0b57b1261319fa523b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://purl.org/co/lastItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    " .
-_:n4754872ad96b43e0b57b1261319fa523b20 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/nextItem> .
-<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b20 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nbaa9fe7bf1c24505bac4bb627246a6f5b22 .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#range> _:nbaa9fe7bf1c24505bac4bb627246a6f5b19 .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b19 <http://www.w3.org/2002/07/owl#intersectionOf> _:nbaa9fe7bf1c24505bac4bb627246a6f5b21 .
 <http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/co/item> .
-_:n4754872ad96b43e0b57b1261319fa523b19 <http://www.w3.org/2002/07/owl#intersectionOf> _:n4754872ad96b43e0b57b1261319fa523b21 .
-<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#range> _:n4754872ad96b43e0b57b1261319fa523b19 .
-<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the last item of the list."@en .
-_:n4754872ad96b43e0b57b1261319fa523b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n4754872ad96b43e0b57b1261319fa523b22 .
-<http://purl.org/co/lastItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
-_:n4754872ad96b43e0b57b1261319fa523b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:n4754872ad96b43e0b57b1261319fa523b20 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nbaa9fe7bf1c24505bac4bb627246a6f5b20 .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#label> "has last item"@en .
 <http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/co/List> .
+<http://purl.org/co/lastItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The relation between an item and the last item of the list."@en .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b20 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/co/nextItem> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/co/ListItem> .
+<http://purl.org/co/lastItem> <http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:lastItem :author-3 .\n    " .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/co/lastItem> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .

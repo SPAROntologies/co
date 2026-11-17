@@ -7,21 +7,21 @@
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
   <rdf:Description rdf:about="http://purl.org/co/itemContent">
+    <rdfs:domain rdf:resource="http://purl.org/co/Item"/>
+    <rdfs:range rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b3"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:label xml:lang="en">has item content</rdfs:label>
+    <rdfs:comment xml:lang="en">The relation between an item and the actual resource to which the item refers.</rdfs:comment>
     <vann:example>
     :citation-1 a co:Item ;
         co:itemContent :paper-1 .
     </vann:example>
-    <rdfs:domain rdf:resource="http://purl.org/co/Item"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:range rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b3"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <rdfs:label xml:lang="en">has item content</rdfs:label>
-    <rdfs:comment xml:lang="en">The relation between an item and the actual resource to which the item refers.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b3">
     <owl:complementOf rdf:resource="http://purl.org/co/Item"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
 </rdf:RDF>

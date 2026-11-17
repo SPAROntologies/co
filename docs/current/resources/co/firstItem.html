@@ -216,28 +216,28 @@ Which entity is at a given position of a list?
         rdfs:comment "The relation between a list and the first item of the list."@en ;
         rdfs:domain co:List ;
         rdfs:isDefinedBy co: ;
-        rdfs:range _:n4754872ad96b43e0b57b1261319fa523b13 ;
+        rdfs:range _:nbaa9fe7bf1c24505bac4bb627246a6f5b13 ;
         rdfs:subPropertyOf co:item ;
         vs:term_status reg:statusStable .
 
-    _:n4754872ad96b43e0b57b1261319fa523b13 a owl:Class ;
-        owl:intersectionOf _:n4754872ad96b43e0b57b1261319fa523b16 .
+    _:nbaa9fe7bf1c24505bac4bb627246a6f5b13 a owl:Class ;
+        owl:intersectionOf _:nbaa9fe7bf1c24505bac4bb627246a6f5b16 .
 
-    _:n4754872ad96b43e0b57b1261319fa523b14 a owl:Restriction ;
+    _:nbaa9fe7bf1c24505bac4bb627246a6f5b14 a owl:Restriction ;
         owl:cardinality "0"^^xsd:nonNegativeInteger ;
         owl:onProperty co:previousItem .
 
-    _:n4754872ad96b43e0b57b1261319fa523b15 a owl:Restriction ;
+    _:nbaa9fe7bf1c24505bac4bb627246a6f5b15 a owl:Restriction ;
         owl:hasValue "1"^^xsd:positiveInteger ;
         owl:onProperty co:index .
 
-    _:n4754872ad96b43e0b57b1261319fa523b16 rdf:first co:ListItem ;
-        rdf:rest _:n4754872ad96b43e0b57b1261319fa523b17 .
+    _:nbaa9fe7bf1c24505bac4bb627246a6f5b16 rdf:first co:ListItem ;
+        rdf:rest _:nbaa9fe7bf1c24505bac4bb627246a6f5b17 .
 
-    _:n4754872ad96b43e0b57b1261319fa523b17 rdf:first _:n4754872ad96b43e0b57b1261319fa523b14 ;
-        rdf:rest _:n4754872ad96b43e0b57b1261319fa523b18 .
+    _:nbaa9fe7bf1c24505bac4bb627246a6f5b17 rdf:first _:nbaa9fe7bf1c24505bac4bb627246a6f5b14 ;
+        rdf:rest _:nbaa9fe7bf1c24505bac4bb627246a6f5b18 .
 
-    _:n4754872ad96b43e0b57b1261319fa523b18 rdf:first _:n4754872ad96b43e0b57b1261319fa523b15 ;
+    _:nbaa9fe7bf1c24505bac4bb627246a6f5b18 rdf:first _:nbaa9fe7bf1c24505bac4bb627246a6f5b15 ;
         rdf:rest () .
 }
 
@@ -247,8 +247,8 @@ Which entity is at a given position of a list?
       {
         "@id": "http://purl.org/co/firstItem",
         "@type": [
-          "http://www.w3.org/2002/07/owl#FunctionalProperty",
-          "http://www.w3.org/2002/07/owl#ObjectProperty"
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty"
         ],
         "http://purl.org/vocab/vann/example": [
           {
@@ -279,7 +279,7 @@ Which entity is at a given position of a list?
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "_:n4754872ad96b43e0b57b1261319fa523b13"
+            "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b13"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
@@ -294,7 +294,7 @@ Which entity is at a given position of a list?
         ]
       },
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b13",
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b13",
         "@type": [
           "http://www.w3.org/2002/07/owl#Class"
         ],
@@ -305,17 +305,17 @@ Which entity is at a given position of a list?
                 "@id": "http://purl.org/co/ListItem"
               },
               {
-                "@id": "_:n4754872ad96b43e0b57b1261319fa523b14"
+                "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b14"
               },
               {
-                "@id": "_:n4754872ad96b43e0b57b1261319fa523b15"
+                "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b15"
               }
             ]
           }
         ]
       },
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b14",
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b14",
         "@type": [
           "http://www.w3.org/2002/07/owl#Restriction"
         ],
@@ -332,7 +332,7 @@ Which entity is at a given position of a list?
         ]
       },
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b15",
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b15",
         "@type": [
           "http://www.w3.org/2002/07/owl#Restriction"
         ],
@@ -351,30 +351,30 @@ Which entity is at a given position of a list?
     ],
     "@id": "http://purl.org/co"
   }
-]</code></pre></div><div class="tab-pane fade" id=id_6df226ed902b525bd6e7e739271b8f4c_Relation_prov_3 role=tabpanel><pre class="mb-0 small"><code>_:n4754872ad96b43e0b57b1261319fa523b17 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n4754872ad96b43e0b57b1261319fa523b18 &lt;http://purl.org/co> .
-&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#label> "has first item"@en &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b15 &lt;http://www.w3.org/2002/07/owl#onProperty> &lt;http://purl.org/co/index> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b14 &lt;http://www.w3.org/2002/07/owl#onProperty> &lt;http://purl.org/co/previousItem> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b17 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n4754872ad96b43e0b57b1261319fa523b14 &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b18 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n4754872ad96b43e0b57b1261319fa523b15 &lt;http://purl.org/co> .
-&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#FunctionalProperty> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b18 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> &lt;http://purl.org/co> .
-&lt;http://purl.org/co/firstItem> &lt;http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:firstItem :author-1 .\n    " &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b16 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#first> &lt;http://purl.org/co/ListItem> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b13 &lt;http://www.w3.org/2002/07/owl#intersectionOf> _:n4754872ad96b43e0b57b1261319fa523b16 &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b14 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#Restriction> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b16 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n4754872ad96b43e0b57b1261319fa523b17 &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b14 &lt;http://www.w3.org/2002/07/owl#cardinality> "0"^^&lt;http://www.w3.org/2001/XMLSchema#nonNegativeInteger> &lt;http://purl.org/co> .
-&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#range> _:n4754872ad96b43e0b57b1261319fa523b13 &lt;http://purl.org/co> .
-&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#domain> &lt;http://purl.org/co/List> &lt;http://purl.org/co> .
+]</code></pre></div><div class="tab-pane fade" id=id_6df226ed902b525bd6e7e739271b8f4c_Relation_prov_3 role=tabpanel><pre class="mb-0 small"><code>&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#label> "has first item"@en &lt;http://purl.org/co> .
 &lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#subPropertyOf> &lt;http://purl.org/co/item> &lt;http://purl.org/co> .
-&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#ObjectProperty> &lt;http://purl.org/co> .
 &lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> &lt;http://purl.org/linked-data/registry#statusStable> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b15 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#Restriction> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b17 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nbaa9fe7bf1c24505bac4bb627246a6f5b14 &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b13 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#Class> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b18 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nbaa9fe7bf1c24505bac4bb627246a6f5b15 &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b14 &lt;http://www.w3.org/2002/07/owl#cardinality> "0"^^&lt;http://www.w3.org/2001/XMLSchema#nonNegativeInteger> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b18 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b16 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#first> &lt;http://purl.org/co/ListItem> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b16 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nbaa9fe7bf1c24505bac4bb627246a6f5b17 &lt;http://purl.org/co> .
+&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#ObjectProperty> &lt;http://purl.org/co> .
+&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#FunctionalProperty> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b15 &lt;http://www.w3.org/2002/07/owl#onProperty> &lt;http://purl.org/co/index> &lt;http://purl.org/co> .
+&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#range> _:nbaa9fe7bf1c24505bac4bb627246a6f5b13 &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b15 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#Restriction> &lt;http://purl.org/co> .
 &lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#comment> "The relation between a list and the first item of the list."@en &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b15 &lt;http://www.w3.org/2002/07/owl#hasValue> "1"^^&lt;http://www.w3.org/2001/XMLSchema#positiveInteger> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b15 &lt;http://www.w3.org/2002/07/owl#hasValue> "1"^^&lt;http://www.w3.org/2001/XMLSchema#positiveInteger> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b13 &lt;http://www.w3.org/2002/07/owl#intersectionOf> _:nbaa9fe7bf1c24505bac4bb627246a6f5b16 &lt;http://purl.org/co> .
+&lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#domain> &lt;http://purl.org/co/List> &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b14 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#Restriction> &lt;http://purl.org/co> .
+&lt;http://purl.org/co/firstItem> &lt;http://purl.org/vocab/vann/example> "\n    :authors a co:List ;\n        co:firstItem :author-1 .\n    " &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b17 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nbaa9fe7bf1c24505bac4bb627246a6f5b18 &lt;http://purl.org/co> .
+_:nbaa9fe7bf1c24505bac4bb627246a6f5b14 &lt;http://www.w3.org/2002/07/owl#onProperty> &lt;http://purl.org/co/previousItem> &lt;http://purl.org/co> .
 &lt;http://purl.org/co/firstItem> &lt;http://www.w3.org/2000/01/rdf-schema#isDefinedBy> &lt;http://purl.org/co/> &lt;http://purl.org/co> .
-_:n4754872ad96b43e0b57b1261319fa523b13 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://www.w3.org/2002/07/owl#Class> &lt;http://purl.org/co> .
 
 </code></pre></div></div></div></div></div></div></div></div></div></div><div><a class="btn btn-outline-secondary" href=../../co.html>← Back to full documentation</a></div><script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js></script><script src=https://cdn.jsdelivr.net/npm/marked/marked.min.js></script><script src=https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js></script><script>document.addEventListener("DOMContentLoaded", function() {
 

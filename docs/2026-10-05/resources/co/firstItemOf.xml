@@ -9,14 +9,14 @@
   <rdf:Description rdf:about="http://purl.org/co/firstItemOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <owl:inverseOf rdf:resource="http://purl.org/co/firstItem"/>
+    <rdfs:comment xml:lang="en">The relation between an object and a list in which the object is first item.</rdfs:comment>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/itemOf"/>
     <vann:example>
     :author-1 a co:ListItem ;
         co:firstItemOf :authors .
     </vann:example>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/itemOf"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdfs:comment xml:lang="en">The relation between an object and a list in which the object is first item.</rdfs:comment>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <rdfs:label xml:lang="en">is first item of</rdfs:label>
   </rdf:Description>
 </rdf:RDF>

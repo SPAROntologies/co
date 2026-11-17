@@ -7,6 +7,8 @@
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
   <rdf:Description rdf:about="http://purl.org/co/Bag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <vann:example>
     :citations a co:Bag ;
         co:item :citation-1 , 
@@ -23,12 +25,10 @@
     :citation-3 a co:Item ; 
         co:itemContent :paper-1 .
     </vann:example>
-    <rdfs:comment xml:lang="en">Collection that can have a number of copies of each object</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/co/Collection"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <rdfs:label xml:lang="en">bag</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">Collection that can have a number of copies of each object</rdfs:comment>
     <owl:disjointWith rdf:resource="http://purl.org/co/Set"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/co/Collection"/>
   </rdf:Description>
 </rdf:RDF>

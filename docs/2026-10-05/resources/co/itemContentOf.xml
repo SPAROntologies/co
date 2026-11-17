@@ -7,16 +7,16 @@
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
   <rdf:Description rdf:about="http://purl.org/co/itemContentOf">
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">The relation between an object and the item that refers to the object.</rdfs:comment>
     <vann:example>
     :paper-1 
         co:itemContentOf :citation-1 , 
                 :citation-3 .
     </vann:example>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment xml:lang="en">The relation between an object and the item that refers to the object.</rdfs:comment>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <owl:inverseOf rdf:resource="http://purl.org/co/itemContent"/>
     <rdfs:label xml:lang="en">is item content of</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
-    <owl:inverseOf rdf:resource="http://purl.org/co/itemContent"/>
   </rdf:Description>
 </rdf:RDF>

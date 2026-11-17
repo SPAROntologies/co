@@ -6,45 +6,45 @@
    xmlns:vann="http://purl.org/vocab/vann/"
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b17">
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b18"/>
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b14"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/co/firstItem">
     <rdfs:label xml:lang="en">has first item</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b13"/>
+    <rdfs:comment xml:lang="en">The relation between a list and the first item of the list.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/co/List"/>
     <vann:example>
     :authors a co:List ;
         co:firstItem :author-1 .
     </vann:example>
-    <rdfs:range rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b13"/>
-    <rdfs:domain rdf:resource="http://purl.org/co/List"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/co/item"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <rdfs:comment xml:lang="en">The relation between a list and the first item of the list.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/co/"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b15">
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b17">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b14"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b18"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b18">
+    <rdf:first rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b15"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b14">
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/co/previousItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b16">
+    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
+    <rdf:rest rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b17"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbaa9fe7bf1c24505bac4bb627246a6f5b15">
     <owl:onProperty rdf:resource="http://purl.org/co/index"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:hasValue>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b14">
-    <owl:onProperty rdf:resource="http://purl.org/co/previousItem"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b18">
-    <rdf:first rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b15"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b16">
-    <rdf:first rdf:resource="http://purl.org/co/ListItem"/>
-    <rdf:rest rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b17"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b13">
-    <owl:intersectionOf rdf:nodeID="n4754872ad96b43e0b57b1261319fa523b16"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
 </rdf:RDF>

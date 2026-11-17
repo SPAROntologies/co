@@ -34,7 +34,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:n4754872ad96b43e0b57b1261319fa523b3"
+        "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b3"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "@id": "_:n4754872ad96b43e0b57b1261319fa523b3",
+    "@id": "_:nbaa9fe7bf1c24505bac4bb627246a6f5b3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
